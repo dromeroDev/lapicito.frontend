@@ -56,12 +56,36 @@ header {
   }
 }
 
-.intro {
+footer {
+  h3 {
+    margin: 0 5px;
+    color: $green-primary;
+  }
+  a {
+    color: $black-main;
+  }
+
   body.dark & {
     background: $header_dark_background;
+    box-shadow: $shadow_dark;
+    a {
+      color: $white-dark;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.intro {
+  body.dark & {
+    background: $body_dark_background;
   }
 }
 
 .text-green {
   color: $green_primary;
+  body.dark & {
+    color: $green_dark_primary;
+  }
 }
