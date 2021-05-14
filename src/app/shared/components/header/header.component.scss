@@ -18,6 +18,7 @@ header {
     cursor: pointer;
     display: flex;
     outline: none;
+    margin-left: 2em;
     &::after {
       content: "";
       display: block;

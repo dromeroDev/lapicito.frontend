@@ -6,6 +6,7 @@ html,
 body {
   height: 100%;
   transition: 0.3s ease all;
+  background-color: $green-background;
 
   &.dark {
     background: $body_dark_background;
@@ -41,7 +42,11 @@ header {
     color: $green-primary;
   }
   a {
+    font-family: "Nunito", sans-serif;
     color: $black-main;
+    &:hover {
+      color: $green-primary;
+    }
   }
 
   body.dark & {
@@ -50,7 +55,7 @@ header {
     a {
       color: $white-dark;
       &:hover {
-        color: white;
+        color: $green_dark_primary;
       }
     }
   }
@@ -61,14 +66,16 @@ footer {
     margin: 0 5px;
     color: $green-primary;
   }
-  a {
+  a,
+  span {
     color: $black-main;
   }
 
   body.dark & {
     background: $header_dark_background;
     box-shadow: $shadow_dark;
-    a {
+    a,
+    span {
       color: $white-dark;
       &:hover {
         color: white;
@@ -78,8 +85,18 @@ footer {
 }
 
 .intro {
+  background-color: $green-background;
+
   body.dark & {
     background: $body_dark_background;
+  }
+}
+
+.intro-break {
+  background-color: $aliceblue-primary;
+
+  body.dark & {
+    background: $aliceblue-dark;
   }
 }
 
@@ -87,5 +104,29 @@ footer {
   color: $green_primary;
   body.dark & {
     color: $green_dark_primary;
+  }
+}
+
+.btn-green-outside {
+  background-color: transparent;
+  color: $green-primary;
+  border: 1px solid $green-primary;
+  border-radius: 5px;
+  padding: 3px;
+  width: 150px;
+  transition: 0.3s ease all;
+
+  &:hover {
+    color: $white-dark;
+    background-color: $green-primary;
+  }
+
+  body.dark & {
+    color: $green-dark-primary;
+    border: 1px solid $green-dark-primary;
+    &:hover {
+      color: $aliceblue-dark !important;
+      background-color: $green-dark-primary;
+    }
   }
 }
