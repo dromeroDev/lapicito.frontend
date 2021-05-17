@@ -21,7 +21,8 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-family: "Nunito", sans-serif;
   font-weight: 900;
 
@@ -107,6 +108,31 @@ footer {
   }
 }
 
+.btn-green {
+  background-color: $green-primary;
+  color: white;
+  border: 1px solid $green-primary;
+  border-radius: 5px;
+  padding: 3px;
+  width: 150px;
+  transition: 0.3s ease all;
+
+  &:hover {
+    background-color: transparent !important;
+    color: $green-primary;
+    border: 1px solid $green-primary;
+  }
+
+  body.dark & {
+    color: $green-dark-primary;
+    border: 1px solid $green-dark-primary;
+    &:hover {
+      color: $aliceblue-dark !important;
+      background-color: $green-dark-primary;
+    }
+  }
+}
+
 .btn-green-outside {
   background-color: transparent;
   color: $green-primary;
@@ -129,4 +155,35 @@ footer {
       background-color: $green-dark-primary;
     }
   }
+}
+
+.btn-blue {
+  background-color: $blue-primary;
+  color: white;
+  border: 1px solid $blue-primary;
+  border-radius: 5px;
+  padding: 3px;
+  width: 150px;
+  transition: 0.3s ease all;
+
+  &:hover {
+    background-color: transparent !important;
+    color: $blue-primary;
+    border: 1px solid $blue-primary;
+  }
+
+  body.dark & {
+    color: $green-dark-primary;
+    border: 1px solid $green-dark-primary;
+    &:hover {
+      color: $aliceblue-dark !important;
+      background-color: $green-dark-primary;
+    }
+  }
+}
+
+.active {
+  background-color: $green-primary;
+  color: white;
+  border: 1px solid $green-primary;
 }
