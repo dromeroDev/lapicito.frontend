@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ingresa</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" novalidate>
+        <input type="email" name="email" class="form-control mb-4" placeholder="Ingresa tu email"
+            formControlName="email">
+        <input type="password" name="password" class="form-control mb-4" placeholder="Ingresa tu contraseña"
+            formControlName="password">
+        <button class="btn-green">Ingresar</button>
+    </form>
+</div>

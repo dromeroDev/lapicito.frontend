@@ -10,7 +10,7 @@
             </ul>
             <p class="text-center text-decoration-underline">Añadir Categorias</p>
             <h5 class="text-green text-center mt-4 pt-4 border-top">Espacios</h5>
-            <p class="text-center text-decoration-underline">Añadir Espacios</p>
+            <p class="text-center">No tenes espacios</p>
             <h5 class="text-green text-center mt-4 pt-4 border-top">Te puede interesar</h5>
             <ul class="list-group mb-3 mt-4">
                 <li class="list-group-item">Informatíca Gral.</li>
@@ -42,7 +42,8 @@
             <div class="d-flex justify-content-center">
                 <div class="m-2">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="searchType" value="option1">
+                        <input class="form-check-input" type="radio" name="searchType" value="option1"
+                            (change)="showPublishments()">
                         <label class="form-check-label" for="inlineRadio1">Publicaciones</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -64,11 +65,11 @@
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
                                     <small>Programación</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>
@@ -78,20 +79,19 @@
                 <div class="col-md-4">
                     <div class="card shadow">
                         <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
                             <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
-                                    avanzados.</small>
+                                <strong class="mt-4 mb-2">Informatíca Gral.</strong>
+                                <small>Espacio dedicado a todo lo referido a Informatíca y computación.</small>
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Informatíca</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>
@@ -101,91 +101,19 @@
                 <div class="col-md-4">
                     <div class="card shadow">
                         <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
                             <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
-                                    avanzados.</small>
+                                <strong class="mt-4 mb-2">Matemática Gral.</strong>
+                                <small>Espacio dedicado a Matemática en general. Todos los niveles.</small>
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Matemática</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
-                                    <small>321</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
-                                    avanzados.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
-                                    <small>321</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
-                                    avanzados.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
-                                    <small>321</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
-                                    avanzados.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>
@@ -206,17 +134,63 @@
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
                                     <small>Programación</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Informatíca Gral.</strong>
+                                <small>Espacio dedicado a todo lo referido a Informatíca y computación.</small>
+                            </div>
+                            <div class="p-2">
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Informatíca</small>
+                                </div>
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
+                                    <small>321</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Matemática Gral.</strong>
+                                <small>Espacio dedicado a Matemática en general. Todos los niveles.</small>
+                            </div>
+                            <div class="p-2">
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Matemática</small>
+                                </div>
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
+                                    <small>321</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
                 <div class="col-md-4">
                     <div class="card shadow">
                         <div class="card-publishment">
@@ -229,11 +203,11 @@
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
                                     <small>Programación</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>
@@ -243,20 +217,41 @@
                 <div class="col-md-4">
                     <div class="card shadow">
                         <div class="card-publishment">
-                            <img src="assets/images/portada-java.png" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
                             <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Todo Java</strong>
-                                <small>Espacio dedicado al mundo Java. Compartimos material desde las bases a temas
-                                    avanzados.</small>
+                                <strong class="mt-4 mb-2">Informatíca Gral.</strong>
+                                <small>Espacio dedicado a todo lo referido a Informatíca y computación.</small>
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
-                                    <small class="me-2">Categoria:</small>
-                                    <small>Programación</small>
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Informatíca</small>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2">Miembros:</small>
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
+                                    <small>321</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Matemática Gral.</strong>
+                                <small>Espacio dedicado a Matemática en general. Todos los niveles.</small>
+                            </div>
+                            <div class="p-2">
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Categoria:</small>
+                                    <small>Matemática</small>
+                                </div>
+                                <div class="d-flex">
+                                    <small class="me-2 text-decoration-underline">Miembros:</small>
                                     <small>321</small>
                                 </div>
                             </div>

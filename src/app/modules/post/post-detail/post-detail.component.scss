@@ -1,0 +1,21 @@
+.post {
+  .portada {
+    height: 300px;
+    width: 100%;
+  }
+  .post-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    button {
+      margin-top: 1em;
+      align-self: center;
+    }
+  }
+}
+
+h5,
+span {
+  width: 100%;
+  text-align: center;
+}

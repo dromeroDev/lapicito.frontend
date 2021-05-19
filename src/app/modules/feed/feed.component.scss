@@ -6,8 +6,9 @@
 .card-publishment {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   .card-publishment-portada {
-    width: 100%;
+    height: 140px;
   }
   .card-publishment-avatar {
     position: absolute;

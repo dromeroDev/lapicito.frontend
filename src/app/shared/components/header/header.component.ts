@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserStoreService } from 'src/app/core/services/user-store.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   modo: string = 'light';
 
-  constructor() {}
+  constructor(private userStoreService: UserStoreService) {}
 
   ngOnInit(): void {
     const btnSwitch = document.querySelector('#switch');
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.modo = 'light';
       }
-      btnSwitch.classList.toggle('active');
+      btnSwitch.classList.toggle('active-light');
     });
   }
 
@@ -28,5 +29,9 @@ export class HeaderComponent implements OnInit {
     return this.modo === 'light'
       ? 'assets/images/logo_green.png'
       : 'assets/images/logo_green_dark.png';
+  }
+
+  openLogin() {
+    this.userStoreService.openLogin();
   }
 }
