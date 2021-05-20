@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { UserStoreService } from 'src/app/core/services/user-store.service';
 
 @Component({
@@ -8,8 +10,10 @@ import { UserStoreService } from 'src/app/core/services/user-store.service';
 })
 export class HeaderComponent implements OnInit {
   modo: string = 'light';
+  userLogged: SocialUser;
+  isLogged: boolean;
 
-  constructor(private userStoreService: UserStoreService) {}
+  constructor(private userStoreService: UserStoreService, private authService: SocialAuthService, private router: Router) {}
 
   ngOnInit(): void {
     const btnSwitch = document.querySelector('#switch');
@@ -23,6 +27,12 @@ export class HeaderComponent implements OnInit {
       }
       btnSwitch.classList.toggle('active-light');
     });
+    this.authService.authState.subscribe(
+    data =>{
+      this.userLogged = data;
+      this.isLogged = (this.userLogged != null);
+    });
+
   }
 
   getImageLogo() {
@@ -33,5 +43,10 @@ export class HeaderComponent implements OnInit {
 
   openLogin() {
     this.userStoreService.openLogin();
+  }
+
+  logOut(): void{
+    this.authService.signOut();
+    this.router.navigate(['/home'])
   }
 }
