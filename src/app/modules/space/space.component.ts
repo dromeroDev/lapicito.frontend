@@ -14,4 +14,8 @@ export class SpaceComponent implements OnInit {
   showPublishments() {
     this.router.navigate(['/feed']);
   }
+
+  showSpaceDetail() {
+    this.router.navigate(['/space/1']);
+  }
 }
