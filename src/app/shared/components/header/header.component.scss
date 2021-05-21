@@ -4,8 +4,15 @@ header {
   height: $header-height;
 
   li {
-    img {
+    .logo {
       height: 40px;
+    }
+    .avatar {
+      width: 40px;
+      height: auto;
+    }
+    .nav-link {
+      cursor: pointer;
     }
   }
 
