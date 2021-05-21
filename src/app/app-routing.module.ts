@@ -6,6 +6,7 @@ import { PostDetailComponent } from './modules/post/post-detail/post-detail.comp
 import { SpaceDetailComponent } from './modules/space/space-detail/space-detail.component';
 import { SpaceComponent } from './modules/space/space.component';
 import { PreferenceComponent } from './modules/user/preference/preference.component';
+import { ProfileComponent } from './modules/user/profile/profile.component';
 import { RegisterComponent } from './modules/user/register/register.component';
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'preference',
     component: PreferenceComponent,
+  },
+  {
+    path: 'user/profile',
+    component: ProfileComponent,
   },
   {
     path: 'feed',

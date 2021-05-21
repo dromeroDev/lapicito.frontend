@@ -1,5 +1,32 @@
 @import "./../../../../assets/partials/variables";
 
 footer {
-  height: $footer-height;
+  height: 200px;
+
+  .row {
+    width: 100%;
+
+    img {
+      height: 50px;
+    }
+
+    a {
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+
+    a,
+    i {
+      color: white !important;
+    }
+
+    .fab {
+      font-size: xx-large !important;
+      cursor: pointer;
+      &:hover {
+        color: rgb(235, 235, 235) !important;
+      }
+    }
+  }
 }

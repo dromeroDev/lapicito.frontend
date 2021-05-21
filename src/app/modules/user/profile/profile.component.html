@@ -1,0 +1,162 @@
+<div class="container p-4">
+    <div class="d-flex flex-column align-items-center">
+        <img src="assets/images/avatar.png">
+        <h2 class="mt-3 mb-3">Marcos Zukenberg</h2>
+        <button class="btn-green">Editar</button>
+    </div>
+    <div class="row mt-5 d-flex align-items-center">
+        <div class="col-md-6">
+            <h2>Mis publicaciones</h2>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <button class="btn-blue">Publicar</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment" (click)="showPublishmentDetail()">
+                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Lorem ipsum</strong>
+                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Programación</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Espacio:</small>
+                            <small>Todo Java</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment">
+                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Lorem ipsum</strong>
+                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Informatíca</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Espacio:</small>
+                            <small>Informatíca Gral.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment">
+                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Lorem ipsum</strong>
+                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Matemática</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Espacio:</small>
+                            <small>Matemática Gral.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 d-flex align-items-center">
+        <div class="col-md-6">
+            <h2>Mis espacios</h2>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <button class="btn-blue">Crear</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment" (click)="showSpaceDetail()">
+                    <img src="assets/images/portada-java.png" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Todo Java</strong>
+                        <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
+                            avanzados.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Programación</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Miembros:</small>
+                            <small>321</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment" (click)="showSpaceDetail()">
+                    <img src="assets/images/portada-java.png" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Todo Java</strong>
+                        <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
+                            avanzados.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Programación</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Miembros:</small>
+                            <small>321</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-publishment" (click)="showSpaceDetail()">
+                    <img src="assets/images/portada-java.png" class="card-publishment-portada">
+                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                    <div class="p-2 d-flex flex-column">
+                        <strong class="mt-4 mb-2">Todo Java</strong>
+                        <small>Espacio dedicado al mundo Java. Compartimos temas desde las bases a temas
+                            avanzados.</small>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Categoria:</small>
+                            <small>Programación</small>
+                        </div>
+                        <div class="d-flex">
+                            <small class="me-2 text-decoration-underline">Miembros:</small>
+                            <small>321</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

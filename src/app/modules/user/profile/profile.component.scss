@@ -1,0 +1,18 @@
+.card-publishment {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  .card-publishment-portada {
+    height: 140px;
+  }
+  .card-publishment-avatar {
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    margin-left: -35px;
+    border-radius: 100%;
+    width: 60px;
+    height: auto;
+    border: 2px solid white;
+  }
+}
