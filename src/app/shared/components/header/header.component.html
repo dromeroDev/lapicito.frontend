@@ -4,9 +4,18 @@
             <img [src]="getImageLogo()" alt="logo de la marca">
             <h3>Lapicito</h3>
         </li>
-        <li class="nav-link d-flex align-items-center">
+        <li *ngIf="!isLogged" class="nav-link d-flex align-items-end">
             <a class="nav-link" [routerLink]="['/register']">Registrarse</a>
             <a class="nav-link" (click)="openLogin()">Login</a>
+        </li>
+        <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width: 50px">
+        <li *ngIf="isLogged" class="nav-link d-flex align-items-end">
+            <a class="nav-link" [routerLink]="['/']">{{userLogged.name}}</a>
+        </li> 
+        <li *ngIf="isLogged" class="nav-link d-flex align-items-end">
+            <a class="nav-link"(click)="logOut()">logout</a>
+        </li>    
+        <li>
             <button class="switch ml-3" id="switch">
                 <span><i class="fa fa-sun"></i></span>
                 <span><i class="fa fa-moon"></i></span>
