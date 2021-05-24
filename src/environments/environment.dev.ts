@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  ambiente: 'prepro',
-  url_server: 'http://localhost:8080',
+  ambiente: 'dev',
+  url_server: 'http://localhost:3000',
 };
 
 /*

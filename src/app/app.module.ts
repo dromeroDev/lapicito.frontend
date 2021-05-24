@@ -9,16 +9,21 @@ import { UserModule } from './modules/user/user.module';
 import { SharedModule } from './shared/shared.module';
 
 //LOGIN CON FACEBOOK Y GOOGLE
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
 import {
   GoogleLoginProvider,
-  FacebookLoginProvider
+  FacebookLoginProvider,
 } from 'angularx-social-login';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     SharedModule,
     HomeModule,
     UserModule,
@@ -36,15 +41,15 @@ import {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               '760502764966-ordqhlej7pos3530n6pe6de2dq134qj6.apps.googleusercontent.com'
-            )
+            ),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('5582663298470591')
-          }
-        ]
+            provider: new FacebookLoginProvider('5582663298470591'),
+          },
+        ],
       } as SocialAuthServiceConfig,
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })
