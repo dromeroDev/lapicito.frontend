@@ -1,20 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategoria } from '../models/categoria';
 import { environment as env } from '../../../environments/environment';
+import { IUsuarioNuevo } from '../models/usuario-nuevo';
 
-const BASE_URL = env.url_server + '/categoria';
+const BASE_URL = env.url_server + '/auth';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriaService {
+export class UserService {
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<ICategoria[]> {
-    return this.http.get<ICategoria[]>(
-      env.ambiente == 'prepro' ? BASE_URL + '/listar' : BASE_URL
-    );
+  register(body: IUsuarioNuevo) {
+    return this.http.post(BASE_URL + '/registrar', body);
   }
 }
