@@ -15,4 +15,8 @@ export class UserService {
   register(body: IUsuarioNuevo) {
     return this.http.post(BASE_URL + '/registrar', body);
   }
+
+  login(body) {
+    return this.http.post(BASE_URL + '/login', body);
+  }
 }

@@ -5,11 +5,11 @@
 </div>
 <div class="modal-body">
     <form [formGroup]="form" novalidate>
-        <input type="email" name="email" class="form-control mb-4" placeholder="Ingresa tu email"
-            formControlName="email">
+        <input type="text" name="userName" class="form-control mb-4" placeholder="Ingresa tu userName"
+            formControlName="userName">
         <input type="password" name="password" class="form-control mb-4" placeholder="Ingresa tu contraseña"
             formControlName="password">
-        <button class="btn-green">Ingresar</button>
+        <button class="btn-green" (click)="login()" [disabled]="form.invalid">Ingresar</button>
     </form>
 </div>
 <div class="modal-footer justify-content-center">

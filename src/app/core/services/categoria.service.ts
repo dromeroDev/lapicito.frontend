@@ -13,8 +13,10 @@ export class CategoriaService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<ICategoria[]> {
-    return this.http.get<ICategoria[]>(
-      env.ambiente == 'prepro' ? BASE_URL + '/listar' : BASE_URL
-    );
+    return this.http.get<ICategoria[]>(BASE_URL + '/listar');
+  }
+
+  saveByUser(body) {
+    return this.http.post(BASE_URL + '/saveByUsuario', body);
   }
 }

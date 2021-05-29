@@ -19,8 +19,28 @@ export class PreferenceComponent implements OnInit {
     });
   }
 
+  existInArray(categoriaSelected: ICategoria) {
+    return this.categoriasSeleccionadas.findIndex((categoria) => {
+      return categoria.idCategoria === categoriaSelected.idCategoria;
+    });
+  }
+
   seleccionarCategoria(categoria: ICategoria) {
-    this.categoriasSeleccionadas.push(categoria);
-    console.log(this.categoriasSeleccionadas);
+    const indexSelected = this.existInArray(categoria);
+
+    if (indexSelected >= 0) {
+      this.categoriasSeleccionadas.splice(indexSelected, 1);
+    } else {
+      this.categoriasSeleccionadas.push(categoria);
+    }
+  }
+
+  save() {
+    const body = {
+      categorias: this.categoriasSeleccionadas,
+      id_usuario: localStorage.getItem('id_usuario'),
+    };
+
+    this.categoriaService.saveByUser(body).subscribe((res) => {});
   }
 }

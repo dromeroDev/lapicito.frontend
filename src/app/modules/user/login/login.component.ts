@@ -8,6 +8,7 @@ import {
   SocialAuthService,
   SocialUser,
 } from 'angularx-social-login';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private activeModal: NgbActiveModal,
     private router: Router,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   formBuild() {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.email, Validators.required]),
+      userName: new FormControl('', [Validators.required]),
       password: new FormControl('', Validators.required),
     });
   }
@@ -47,6 +49,19 @@ export class LoginComponent implements OnInit {
 
   dismiss() {
     this.activeModal.dismiss();
+  }
+
+  login() {
+    const body = {
+      userName: this.form.get('userName').value,
+      password: this.form.get('password').value,
+    };
+    this.userService.login(body).subscribe((res) => {
+      localStorage.setItem('token', res['token']);
+      localStorage.setItem('id_usuario', res['id_usuario']);
+      this.close();
+      this.router.navigate(['/preference']);
+    });
   }
 
   signInWithGoogle(): void {
