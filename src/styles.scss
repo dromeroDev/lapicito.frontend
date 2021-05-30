@@ -122,6 +122,23 @@ input {
   }
 }
 
+.card {
+  body.dark & {
+    background-color: transparent;
+  }
+}
+
+.form-check-input {
+  &:checked {
+    background-color: $blue-primary;
+  }
+  body.dark & {
+    &:checked {
+      background-color: $green-dark-primary;
+    }
+  }
+}
+
 .btn-green {
   background-color: $green-primary;
   color: white;
@@ -159,6 +176,12 @@ input {
   &:hover {
     color: $white-dark;
     background-color: $green-primary;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: transparent !important;
+    color: $green-primary;
   }
 
   body.dark & {

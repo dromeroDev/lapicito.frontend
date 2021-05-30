@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategoria } from 'src/app/core/models/categoria';
 import { CategoriaService } from 'src/app/core/services/categoria.service';
 
@@ -11,11 +12,20 @@ export class PreferenceComponent implements OnInit {
   categorias: ICategoria[];
   categoriasSeleccionadas: ICategoria[] = [];
 
-  constructor(private categoriaService: CategoriaService) {}
+  constructor(
+    private router: Router,
+    private categoriaService: CategoriaService
+  ) {}
 
   ngOnInit(): void {
+    const idUser = localStorage.getItem('id_usuario');
     this.categoriaService.getAll().subscribe((data) => {
       this.categorias = data;
+      this.categoriaService.getByUser(idUser).subscribe((res) => {
+        res['categorias'].forEach((categoria) => {
+          this.seleccionarCategoria(categoria);
+        });
+      });
     });
   }
 
@@ -25,13 +35,22 @@ export class PreferenceComponent implements OnInit {
     });
   }
 
+  changeCheckCategoria(categoria, checked) {
+    const index = this.categorias.findIndex((cat) => {
+      return cat.idCategoria === categoria.idCategoria;
+    });
+    this.categorias[index].checked = checked;
+  }
+
   seleccionarCategoria(categoria: ICategoria) {
     const indexSelected = this.existInArray(categoria);
 
     if (indexSelected >= 0) {
       this.categoriasSeleccionadas.splice(indexSelected, 1);
+      this.changeCheckCategoria(categoria, false);
     } else {
       this.categoriasSeleccionadas.push(categoria);
+      this.changeCheckCategoria(categoria, true);
     }
   }
 
@@ -41,6 +60,8 @@ export class PreferenceComponent implements OnInit {
       id_usuario: localStorage.getItem('id_usuario'),
     };
 
-    this.categoriaService.saveByUser(body).subscribe((res) => {});
+    this.categoriaService.saveByUser(body).subscribe((res) => {
+      this.router.navigateByUrl('/feed');
+    });
   }
 }

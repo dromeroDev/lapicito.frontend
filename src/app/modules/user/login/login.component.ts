@@ -8,6 +8,7 @@ import {
   SocialAuthService,
   SocialUser,
 } from 'angularx-social-login';
+import { UserStoreService } from 'src/app/core/services/user-store.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     private activeModal: NgbActiveModal,
     private router: Router,
     private authService: SocialAuthService,
-    private userService: UserService
+    private userService: UserService,
+    private userStoreService: UserStoreService
   ) {}
 
   ngOnInit(): void {
@@ -59,8 +61,11 @@ export class LoginComponent implements OnInit {
     this.userService.login(body).subscribe((res) => {
       localStorage.setItem('token', res['token']);
       localStorage.setItem('id_usuario', res['id_usuario']);
-      this.close();
-      this.router.navigate(['/preference']);
+      this.userService.getDatosPerfil(res['id_usuario']).subscribe((data) => {
+        this.userStoreService.usuarioLogueado = data;
+        this.close();
+        this.router.navigate(['/preference']);
+      });
     });
   }
 
