@@ -1,6 +1,20 @@
+@import "./../../../assets/partials/variables";
+
 .btn-lg {
   font-size: 16px;
   height: 38px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: $blue-primary;
+  }
+}
+
+p.text-decoration-underline {
+  cursor: pointer;
 }
 
 .card-publishment {

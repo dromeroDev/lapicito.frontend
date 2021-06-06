@@ -64,7 +64,11 @@ export class LoginComponent implements OnInit {
       this.userService.getDatosPerfil(res['id_usuario']).subscribe((data) => {
         this.userStoreService.usuarioLogueado = data;
         this.close();
-        this.router.navigate(['/preference']);
+        if (res['tieneCategorias']) {
+          this.router.navigate(['/feed']);
+        } else {
+          this.router.navigate(['/preference']);
+        }
       });
     });
   }

@@ -10,45 +10,88 @@
 
     <form [formGroup]="form">
         <div class="row mb-4">
-            <div class="col-md-6">
-                <label class="form-label">Nombre</label>
-                <input type="email" class="form-control" formControlName="nombre">
-
+            <div class="col-md-4">
+                <label class="form-label"><small class="indicator-required">*</small> Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre">
+                <small class="text-danger"
+                    *ngIf="(form.controls.nombre.dirty || form.controls.nombre.touched) && form.controls.nombre.getError('required')">El
+                    nombre es
+                    requerido</small>
             </div>
-            <div class="col-md-6">
-                <label class="form-label">Apellido</label>
-                <input type="email" class="form-control" formControlName="apellido">
-
+            <div class="col-md-4">
+                <label class="form-label"><small class="indicator-required">*</small> Apellido</label>
+                <input type="text" class="form-control" formControlName="apellido">
+                <small class="text-danger"
+                    *ngIf="(form.controls.apellido.dirty || form.controls.apellido.touched) && form.controls.apellido.getError('required')">El
+                    apellido es
+                    requerido</small>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label"><small class="indicator-required">*</small> Nombre de usuario</label>
+                <input type="text" class="form-control" formControlName="userName">
+                <small class="text-danger"
+                    *ngIf="(form.controls.userName.dirty || form.controls.userName.touched) && form.controls.userName.getError('required')">El
+                    nombre de usuario es
+                    requerido</small>
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-md-6">
-                <label class="form-label">Email</label>
+                <label class="form-label"><small class="indicator-required">*</small> Email</label>
                 <input type="email" class="form-control" formControlName="email">
-
+                <small class="text-danger"
+                    *ngIf="(form.controls.email.dirty || form.controls.email.touched) && form.controls.email.getError('required')">El
+                    email es
+                    requerido</small>
+                <small class="text-danger" *ngIf="form.controls.email.dirty && form.controls.email.getError('email')">El
+                    email no es valido</small>
             </div>
             <div class="col-md-6">
-                <label class="form-label">Repita Email</label>
-                <input type="email" class="form-control" formControlName="reemail">
-
+                <label class="form-label"><small class="indicator-required">*</small> Repita Email</label>
+                <input type="email" class="form-control" formControlName="reemail" (keyup)="validateEmail()">
+                <small class="text-danger"
+                    *ngIf="(form.controls.reemail.dirty || form.controls.reemail.touched) && form.controls.reemail.getError('required')">Repita
+                    el email</small>
+                <small class="text-danger"
+                    *ngIf="form.controls.reemail.dirty && form.controls.reemail.getError('reemail')">Los emails no
+                    coinciden</small>
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-md-6">
-                <label class="form-label">Contraseña</label>
+                <label class="form-label"><small class="indicator-required">*</small> Contraseña</label>
                 <input type="password" class="form-control" formControlName="password">
-
+                <small class="text-danger"
+                    *ngIf="(form.controls.password.dirty || form.controls.password.touched) && form.controls.password.getError('required')">La
+                    contraseña es requerida</small>
+                <small class="text-danger"
+                    *ngIf="form.controls.password.dirty && form.controls.password.getError('minlength')">La contraseña
+                    debe tener un mínimo de 4 caracteres</small>
             </div>
             <div class="col-md-6">
-                <label class="form-label">Repita
+                <label class="form-label"><small class="indicator-required">*</small> Repita
                     contraseña</label>
-                <input type="password" class="form-control" formControlName="repassword">
-
+                <input type="password" class="form-control" formControlName="repassword" (keyup)="validatePassword()">
+                <small class="text-danger"
+                    *ngIf="(form.controls.repassword.dirty || form.controls.repassword.touched) && form.controls.repassword.getError('required')">Repita
+                    la contraseña</small>
+                <small class="text-danger"
+                    *ngIf="form.controls.repassword.dirty && form.controls.repassword.getError('repassword')">Las
+                    contraseñas no coninciden</small>
             </div>
         </div>
-        <div class="d-flex justify-content-end">
-            <button class="btn btn-secondary" [routerLink]="['/home']">Cancelar</button>
-            <button class="btn-green-outside ms-4" (click)="register()">Registrarse</button>
+        <div class="row">
+            <div class="col-md-6">
+                <small class="indicator-required">* <i>Campos requeridos</i></small>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-secondary" [routerLink]="['/home']">Cancelar</button>
+                    <button class="btn-green-outside ms-4" [disabled]="form.invalid"
+                        (click)="register()">Registrarse</button>
+                </div>
+            </div>
         </div>
+
     </form>
 </div>

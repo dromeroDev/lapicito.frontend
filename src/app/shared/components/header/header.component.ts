@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   getImageLogo() {
     return this.modo === 'light'
-      ? 'assets/images/logo_green.png'
+      ? 'assets/images/logo_new.svg'
       : 'assets/images/logo_green_dark.png';
   }
 

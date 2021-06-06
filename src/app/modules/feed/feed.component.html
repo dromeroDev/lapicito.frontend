@@ -3,12 +3,14 @@
         <div class="col-md-2 pe-4">
             <h5 class="text-green text-center">Categorias</h5>
             <ul class="list-group mb-3 mt-4">
-                <li class="list-group-item active" aria-current="true">Todas</li>
-                <li class="list-group-item">Informatíca</li>
-                <li class="list-group-item">Matemática</li>
-                <li class="list-group-item">Programación</li>
+                <li class="list-group-item" [ngClass]="{'active': !categoriaSelected}"
+                    (click)="getPublishmentsByCategories()">Todas</li>
+                <li class="list-group-item"
+                    [ngClass]="{'active': categoriaSelected && categoriaSelected.idCategoria === categoria.idCategoria}"
+                    *ngFor="let categoria of categorias" (click)="getPublishmentsByCategories(categoria)">
+                    {{categoria.descripcion}}</li>
             </ul>
-            <p class="text-center text-decoration-underline">Añadir Categorias</p>
+            <p class="text-center text-decoration-underline" (click)="goToPreference()">Añadir Categorias</p>
             <h5 class="text-green text-center mt-4 pt-4 border-top">Espacios</h5>
             <p class="text-center">No tenes espacios</p>
             <h5 class="text-green text-center mt-4 pt-4 border-top">Te puede interesar</h5>
@@ -53,203 +55,23 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-md-4">
+                <div class="col-md-4" *ngFor="let publishment of publishments">
                     <div class="card shadow">
                         <div class="card-publishment" (click)="showPublishmentDetail()">
                             <img src="assets/images/portada.jpg" class="card-publishment-portada">
                             <img src="assets/images/avatar.png" class="card-publishment-avatar">
                             <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
+                                <strong class="mt-4 mb-2">{{publishment.titulo}}</strong>
+                                <small>{{publishment.descripcion}}</small>
                             </div>
                             <div class="p-2">
                                 <div class="d-flex">
                                     <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Programación</small>
+                                    <small>{{publishment.espacio.categoria.descripcion}}</small>
                                 </div>
                                 <div class="d-flex">
                                     <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Todo Java</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada img-fluid">
-                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Informatíca</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Informatíca Gral.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Matemática</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Matemática Gral.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Programación</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Todo Java</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada img-fluid">
-                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Informatíca</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Informatíca Gral.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Matemática</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Matemática Gral.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Programación</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Todo Java</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-informatica.jpg" class="card-publishment-portada img-fluid">
-                            <img src="assets/images/avatar-2.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Informatíca</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Informatíca Gral.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Lorem ipsum</strong>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>Matemática</small>
-                                </div>
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>Matemática Gral.</small>
+                                    <small>{{publishment.espacio.descripcion}}</small>
                                 </div>
                             </div>
                         </div>

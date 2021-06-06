@@ -19,6 +19,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
+import { FeedModule } from './modules/feed/feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import {
     HomeModule,
     UserModule,
     PostModule,
+    FeedModule,
     AppRoutingModule,
     SocialLoginModule,
   ],
