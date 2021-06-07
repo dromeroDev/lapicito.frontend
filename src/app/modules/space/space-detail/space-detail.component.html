@@ -1,88 +1,51 @@
 <div class="container p-4">
-    <div class="row post">
-        <div class="col-md-9 post-detail">
-            <img src="assets/images/portada-java.png" class="portada mb-3">
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <h1>Todo Java</h1>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <button class="btn-blue">Unirse</button>
-                </div>
-            </div>
+    <button type="button" class="btn btn-sm btn-outline-secondary mb-3" [routerLink]="['/feed']">
+        << Volver</button>
+            <div class="row post" *ngIf="space">
+                <div class="col-md-9 post-detail">
+                    <img src="assets/images/portada-java.png" class="portada mb-3">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-6">
+                            <h1>{{space.descripcion}}</h1>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-end">
+                            <button class="btn-blue m-0">Unirse</button>
+                        </div>
+                    </div>
 
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam voluptatem corrupti saepe quisquam
+                    <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam voluptatem corrupti saepe quisquam
                 distinctio quae fugit maiores nostrum, unde pariatur vero, id quibusdam? Debitis qui eveniet, explicabo
-                pariatur nisi dicta.</p>
-        </div>
-        <div class="col-md-3 p-4 d-flex flex-column align-items-center">
-            <img src="assets/images/avatar.png" class="mb-3">
-            <h5>Administrador: javero85</h5>
-            <button type="button" class="btn-green mb-4">Donar Lapicito</button>
-            <h5 class="border-top pt-3">Miembros</h5>
-            <span>101</span>
-            <h5 class="pt-3">Categoría</h5>
-            <span>Programación</span>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h3>Publicaciones</h3>
-        </div>
-    </div>
+                pariatur nisi dicta.</p> -->
+                </div>
+                <div class="col-md-3 p-4 d-flex flex-column align-items-center">
+                    <img src="assets/images/avatar.png" class="mb-3">
+                    <h5>Administrador: ***</h5>
+                    <button type="button" class="btn-green mb-4">Donar Lapicito</button>
+                    <h5 class="border-top pt-3">Miembros</h5>
+                    <span>***</span>
+                    <h5 class="pt-3">Categoría</h5>
+                    <span>{{space.categoria.descripcion}}</span>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-6">
+                    <h3>Publicaciones</h3>
+                </div>
+            </div>
 
-    <div class="row feedback">
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-publishment" (click)="showPublishmentDetail()">
-                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                    <div class="p-2 d-flex flex-column">
-                        <small class="mt-4 mb-2">Fecha: 20/02/2021</small>
-                        <strong class="mb-2">Lorem ipsum</strong>
-                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
+            <div class="row feedback">
+                <div class="col-md-3" *ngFor="let publishment of publishments">
+                    <div class="card shadow">
+                        <div class="card-publishment" (click)="showPublishmentDetail(publishment.id)">
+                            <img src="assets/images/portada.jpg" class="card-publishment-portada">
+                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
+                            <div class="p-2 d-flex flex-column">
+                                <small class="mt-4 mb-2">Fecha: {{publishment.fecha_alta | date: 'dd/MM/yyyy'}}</small>
+                                <strong class="mb-2">{{publishment.titulo}}</strong>
+                                <small>{{publishment.descripcion}}</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-publishment" (click)="showPublishmentDetail()">
-                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                    <div class="p-2 d-flex flex-column">
-                        <small class="mt-4 mb-2">Fecha: 20/02/2021</small>
-                        <strong class="mb-2">Lorem ipsum</strong>
-                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-publishment" (click)="showPublishmentDetail()">
-                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                    <div class="p-2 d-flex flex-column">
-                        <small class="mt-4 mb-2">Fecha: 20/02/2021</small>
-                        <strong class="mb-2">Lorem ipsum</strong>
-                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-publishment" (click)="showPublishmentDetail()">
-                    <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                    <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                    <div class="p-2 d-flex flex-column">
-                        <small class="mt-4 mb-2">Fecha: 20/02/2021</small>
-                        <strong class="mb-2">Lorem ipsum</strong>
-                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deserunt.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

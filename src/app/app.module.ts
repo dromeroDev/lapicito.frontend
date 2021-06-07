@@ -6,7 +6,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
-import { PostModule } from './modules/post/post.module';
+import { PublishmentModule } from './modules/publishment/publishment.module';
 import { UserModule } from './modules/user/user.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -20,6 +20,7 @@ import {
   FacebookLoginProvider,
 } from 'angularx-social-login';
 import { FeedModule } from './modules/feed/feed.module';
+import { SpaceModule } from './modules/space/space.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { FeedModule } from './modules/feed/feed.module';
     SharedModule,
     HomeModule,
     UserModule,
-    PostModule,
+    PublishmentModule,
+    SpaceModule,
     FeedModule,
     AppRoutingModule,
     SocialLoginModule,

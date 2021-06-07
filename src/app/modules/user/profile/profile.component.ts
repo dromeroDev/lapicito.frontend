@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IUsuario } from 'src/app/core/models/usuario';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,13 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(private router: Router) {}
+  user: IUsuario;
 
-  ngOnInit(): void {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.userService.getDatosPerfil(params.id).subscribe((res) => {
+        this.user = res;
+      });
+    });
+  }
 
   showPublishmentDetail() {
     this.router.navigate(['/publishment/1']);
   }
+
   showSpaceDetail() {
     this.router.navigate(['/space/1']);
   }

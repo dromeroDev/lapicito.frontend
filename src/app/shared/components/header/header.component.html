@@ -13,10 +13,17 @@
             </button>
         </li>
 
-        <li *ngIf="userStoreService.usuarioLogueado" class="nav-link d-flex align-items-end">
-            <!-- <img src="{{userLogged.photoUrl}}" class="rounded-circle mr-3 avatar"> -->
-            <a class="nav-link" [routerLink]="['/']">{{userStoreService.usuarioLogueado.userName}}</a>
-            <a class="nav-link" (click)="logOut()">logout</a>
+        <li *ngIf="userStoreService.usuarioLogueado" class="nav-link d-flex align-items-center">
+            <div class="d-flex dropdown">
+                <img src="assets/images/avatar.png" class="rounded-circle mr-3 avatar">
+                <span class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">{{userStoreService.usuarioLogueado.userName}}</span>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" [routerLink]="['/user/' + userStoreService.usuarioLogueado.id]">Ver
+                            perfil</a></li>
+                    <li><a class="dropdown-item" (click)="logOut()">logout</a></li>
+                </ul>
+            </div>
             <button class="switch ml-3" id="switch">
                 <span><i class="fa fa-sun"></i></span>
                 <span><i class="fa fa-moon"></i></span>

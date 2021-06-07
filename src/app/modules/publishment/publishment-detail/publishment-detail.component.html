@@ -1,0 +1,89 @@
+<div class="container p-4">
+    <button type="button" class="btn btn-sm btn-outline-secondary mb-3" [routerLink]="['/feed']">
+        << Volver</button>
+            <div class="row post" *ngIf="publishment">
+                <div class="col-md-9 post-detail">
+                    <small class="mb-2">Fecha: {{publishment.fecha_alta | date: 'dd/MM/yyyy'}}</small>
+                    <img src="assets/images/portada.jpg" class="portada mb-3">
+                    <h1>{{publishment.titulo}}</h1>
+                    <p>{{publishment.descripcion}}</p>
+
+                    <button class="btn-lg btn-blue">Descargar</button>
+
+                </div>
+                <div class="col-md-3 p-4 d-flex flex-column align-items-center">
+                    <img src="assets/images/avatar.png" class="mb-3">
+                    <h5>Autor: {{publishment.usuario.userName}}</h5>
+                    <button type="button" class="btn-green mb-4">Donar Lapicito</button>
+                    <h5 class="border-top pt-3">Espacio</h5>
+                    <span>{{publishment.espacio.descripcion}}</span>
+                    <h5 class="pt-3">Categoría</h5>
+                    <span>{{publishment.espacio.categoria.descripcion}}</span>
+                    <h5 class="border-top mt-3 pt-3">Cantidad de descargas:</h5>
+                    <span>***</span>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Valoraciones</h3>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                    <a href="">Escribir valoración</a>
+                </div>
+            </div>
+
+            <div class="row feedback">
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Diego dijo:</strong>
+                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Damian dijo:</strong>
+                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Rama dijo:</strong>
+                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-publishment">
+                            <div class="p-2 d-flex flex-column">
+                                <strong class="mt-4 mb-2">Ian dijo:</strong>
+                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>

@@ -15,4 +15,12 @@ export class PublishmentService {
   getPublishmentsByCategories(body): Observable<IPublicacion[]> {
     return this.http.post<IPublicacion[]>(BASE_URL + '/categorias', body);
   }
+
+  getById(id): Observable<IPublicacion> {
+    return this.http.get<IPublicacion>(BASE_URL + '/' + id);
+  }
+
+  getPublishmentsBySpace(id): Observable<IPublicacion[]> {
+    return this.http.get<IPublicacion[]>(BASE_URL + '/espacio/' + id);
+  }
 }

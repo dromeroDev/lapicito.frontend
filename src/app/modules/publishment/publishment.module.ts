@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PublishmentDetailComponent } from './publishment-detail/publishment-detail.component';
 import { RouterModule } from '@angular/router';
-import { SpaceDetailComponent } from './space-detail/space-detail.component';
 
 @NgModule({
-  declarations: [SpaceDetailComponent],
+  declarations: [PublishmentDetailComponent],
   imports: [CommonModule, RouterModule],
 })
-export class SpaceModule {}
+export class PublishmentModule {}
