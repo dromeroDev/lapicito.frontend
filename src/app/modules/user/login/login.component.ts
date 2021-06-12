@@ -8,7 +8,8 @@ import {
   SocialAuthService,
   SocialUser,
 } from 'angularx-social-login';
-import { UserStoreService } from 'src/app/core/services/user-store.service';
+import { IUsuario } from 'src/app/core/models/usuario';
+import { StorageService } from 'src/app/core/services/storage.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: SocialAuthService,
     private userService: UserService,
-    private userStoreService: UserStoreService
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -58,19 +59,27 @@ export class LoginComponent implements OnInit {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value,
     };
-    this.userService.login(body).subscribe((res) => {
-      localStorage.setItem('token', res['token']);
-      localStorage.setItem('id_usuario', res['id_usuario']);
-      this.userService.getDatosPerfil(res['id_usuario']).subscribe((data) => {
-        this.userStoreService.usuarioLogueado = data;
-        this.close();
-        if (res['tieneCategorias']) {
-          this.router.navigate(['/feed']);
-        } else {
-          this.router.navigate(['/preference']);
-        }
-      });
-    });
+    this.userService.login(body).subscribe(
+      (res) => {
+        localStorage.setItem('token', res['token']);
+        localStorage.setItem('id_usuario', res['id_usuario']);
+        this.userService
+          .getDatosPerfil(res['id_usuario'])
+          .subscribe((data: IUsuario) => {
+            this.storageService.setItem('usuario', JSON.stringify(data));
+
+            this.close();
+            if (res['tieneCategorias']) {
+              this.router.navigate(['/feed']);
+            } else {
+              this.router.navigate(['/preference']);
+            }
+          });
+      },
+      (error) => {
+        alert('error');
+      }
+    );
   }
 
   signInWithGoogle(): void {

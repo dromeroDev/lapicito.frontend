@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUsuarioNuevo } from 'src/app/core/models/usuario-nuevo';
-import { UserStoreService } from 'src/app/core/services/user-store.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -19,11 +12,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private userStoreService: UserStoreService
-  ) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -99,7 +88,7 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('token', res['token']);
         localStorage.setItem('id_usuario', res['id_usuario']);
         this.userService.getDatosPerfil(res['id_usuario']).subscribe((data) => {
-          this.userStoreService.usuarioLogueado = data;
+          localStorage.setItem('usuario', JSON.stringify(data));
           if (res['tieneCategorias']) {
             this.router.navigate(['/feed']);
           } else {

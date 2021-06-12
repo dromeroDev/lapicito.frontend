@@ -219,6 +219,10 @@ input {
   }
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .active {
   background-color: $green-primary;
   color: white;

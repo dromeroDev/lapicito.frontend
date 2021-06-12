@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './core/guards/login.guard';
 import { FeedComponent } from './modules/feed/feed.component';
 import { HomeComponent } from './modules/home/home.component';
 import { PublishmentDetailComponent } from './modules/publishment/publishment-detail/publishment-detail.component';
@@ -25,22 +26,27 @@ const routes: Routes = [
   {
     path: 'preference',
     component: PreferenceComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'user/:id',
     component: ProfileComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'feed',
     component: FeedComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'publishment/:id',
     component: PublishmentDetailComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'space/:id',
     component: SpaceDetailComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: '**',

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
+import { Observable } from 'rxjs';
 import { IUsuario } from 'src/app/core/models/usuario';
+import { StorageService } from 'src/app/core/services/storage.service';
 import { UserStoreService } from 'src/app/core/services/user-store.service';
 
 @Component({
@@ -13,10 +15,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   modo: string = 'light';
   //userLogged: SocialUser;
   userLogged: IUsuario;
+
   isLogged: boolean;
 
   constructor(
     public userStoreService: UserStoreService,
+    private storageService: StorageService,
     private authService: SocialAuthService,
     private router: Router
   ) {}
@@ -26,6 +30,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     //   this.userLogged = data;
     //   this.isLogged = this.userLogged != null;
     // });
+    this.storageService.watchStorage().subscribe((data: string) => {
+      this.userLogged = JSON.parse(localStorage.getItem('usuario'));
+    });
+    const user = localStorage.getItem('usuario');
+    if (user) {
+      this.storageService.emitChange();
+    }
   }
 
   ngAfterViewInit() {
@@ -49,12 +60,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   openLogin() {
+    this.isLogged = true;
     this.userStoreService.openLogin();
   }
 
   logOut(): void {
-    // this.authService.signOut().then((data) => {
-    //   this.router.navigate(['/home']);
-    // });
+    this.router.navigateByUrl('home');
   }
 }
