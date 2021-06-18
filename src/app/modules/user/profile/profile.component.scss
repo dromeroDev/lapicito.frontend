@@ -3,7 +3,7 @@
   height: 220px;
   background-position: center;
   background-size: contain;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .img-thumbnail {
@@ -11,6 +11,12 @@
   top: 45%;
   left: 100px;
   height: 160px;
+}
+
+.btn-mp {
+  img {
+    height: 30px;
+  }
 }
 
 .card-publishment {

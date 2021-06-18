@@ -10,6 +10,9 @@
         <!-- <img class="img-portada" [src]="user.portada_url" onerror="this.src='assets/images/user-empty-avatar.png';"> -->
     </div>
     <div class="row border-bottom pb-4">
+        <div class="col-md-12 d-flex justify-content-end">
+            <i class="fa fa-pen pointer p-3"></i>
+        </div>
         <div class="col-md-4 ps-5">
             <h3>{{user.userName}}</h3>
             <h2 class="mt-3 mb-3">{{user.nombre}} {{user.apellido}}</h2>
@@ -27,11 +30,13 @@
                     {{cat.descripcion}}
                 </span>
             </div> -->
-            <a class="btn-blue"
-                href="https://auth.mercadopago.com.ar/authorization?client_id=2974784228505657&response_type=code&platform_id=mp&redirect_uri=http://localhost:4200/callback">Vincular
-                Mercado Pago</a>
-
-            <button class="btn-blue" (click)="generarCredencialesMP()">Vincular</button>
+            <a class="btn btn-outline-primary btn-block mt-3 btn-mp" [href]="getUrlMP()" placement="top"
+                ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!">
+                <img src="assets/images/icon_mp.png">
+                Vincular Mercado Pago</a>
+            <a class="btn btn-outline-danger btn-block mt-3 btn-mp" [href]="getUrlMP()">
+                <img src="assets/images/icon_mp.png">
+                Devincular Mercado Pago</a>
         </div>
     </div>
     <div class="row mt-5 d-flex align-items-center">
