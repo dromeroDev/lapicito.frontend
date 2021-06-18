@@ -1,3 +1,18 @@
+.container-img-portada {
+  width: 100%;
+  height: 220px;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 60px;
+}
+
+.img-thumbnail {
+  position: absolute;
+  top: 45%;
+  left: 100px;
+  height: 160px;
+}
+
 .card-publishment {
   display: flex;
   flex-direction: column;

@@ -24,4 +24,13 @@ export class UserService {
   getDatosPerfil(id: number): Observable<IUsuario> {
     return this.http.get<IUsuario>(BASE_URL + '/perfil/' + id);
   }
+
+  generarCredencialesMP(body) {
+    const headers = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('content-type', 'application/x-www-form-urlencoded');
+    return this.http.post('https://api.mercadopago.com/oauth/token', body, {
+      headers: headers,
+    });
+  }
 }

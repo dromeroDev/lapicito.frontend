@@ -22,13 +22,14 @@ export class LoginComponent implements OnInit {
   socialUser: SocialUser;
   userLogged: SocialUser;
   isLogged: boolean;
+  msjError: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
     private router: Router,
     private authService: SocialAuthService,
     private userService: UserService,
-    private storageService: StorageService
+    private storageService: StorageService //public toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.msjError = false;
     const body = {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value,
@@ -77,7 +79,8 @@ export class LoginComponent implements OnInit {
           });
       },
       (error) => {
-        alert('error');
+        //this.toastService.show('I am a standard toast');
+        this.msjError = true;
       }
     );
   }

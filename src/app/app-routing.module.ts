@@ -49,6 +49,10 @@ const routes: Routes = [
     canActivate: [LoginGuard],
   },
   {
+    path: 'callback',
+    component: FeedComponent,
+  },
+  {
     path: '**',
     component: HomeComponent,
   },

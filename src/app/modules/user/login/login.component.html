@@ -9,7 +9,10 @@
             formControlName="userName">
         <input type="password" name="password" class="form-control mb-4" placeholder="Ingresa tu contraseña"
             formControlName="password">
-        <button class="btn-green" (click)="login()" [disabled]="form.invalid">Ingresar</button>
+        <div class="d-flex justify-content-between align-items-center">
+            <button class="btn-green" (click)="login()" [disabled]="form.invalid">Ingresar</button>
+            <small class="text-danger" [hidden]="!msjError">El usuario o la contraseña son incorrectos</small>
+        </div>
     </form>
 </div>
 <div class="modal-footer justify-content-center">
@@ -17,4 +20,9 @@
         <i class="fab fa-google"></i> Iniciar Sesión con Google</button>
     <button class="btn btn-outline-primary btn-block mt-3" (click)="signInWithFB()">
         <i class="fab fa-facebook-f"></i> Iniciar Sesión con Facebook</button>
+</div>
+<div class="modal-footer align-items-center justify-content-center">
+    <p>¿No tenés cuenta?</p>
+    <button class="btn btn-outline-secondary btn-block" [routerLink]="['/register']" (click)="dismiss()">
+        Registrarse</button>
 </div>

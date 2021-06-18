@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://api.mercadopago.com/oauth/token",
+    "secure": false,
+    "loglevel": "debug"
+  }
+}
