@@ -3,14 +3,12 @@
   height: 220px;
   background-position: center;
   background-size: contain;
-  margin-bottom: 20px;
-}
-
-.img-thumbnail {
-  position: absolute;
-  top: 45%;
-  left: 100px;
-  height: 160px;
+  .img-thumbnail {
+    position: absolute;
+    top: 230px;
+    left: 100px;
+    height: 160px;
+  }
 }
 
 .btn-mp {
@@ -19,17 +17,49 @@
   }
 }
 
+.card {
+  height: 300px;
+  margin-bottom: 15px;
+}
+
 .card-publishment {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  .card-publishment-portada {
-    height: 140px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1em;
+  height: 100%;
+  h5 {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
   .card-publishment-avatar {
+    border-radius: 100%;
+    width: 80px;
+    height: auto;
+    border: 2px solid white;
+    margin-bottom: 15px;
+  }
+}
+
+.card-space {
+  display: flex;
+  flex-direction: column;
+  .card-space-portada {
+    height: 100px;
+  }
+  h5 {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .card-space-avatar {
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 60px;
     margin-left: -35px;
     border-radius: 100%;
     width: 60px;

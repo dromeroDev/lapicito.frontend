@@ -23,4 +23,8 @@ export class PublishmentService {
   getPublishmentsBySpace(id): Observable<IPublicacion[]> {
     return this.http.get<IPublicacion[]>(BASE_URL + '/espacio/' + id);
   }
+
+  getPublishmentsByIdUser(id): Observable<IPublicacion[]> {
+    return this.http.get<IPublicacion[]>(BASE_URL + '/usuario/' + id);
+  }
 }

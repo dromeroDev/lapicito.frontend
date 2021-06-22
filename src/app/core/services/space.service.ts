@@ -19,4 +19,8 @@ export class SpaceService {
   getById(id): Observable<IEspacio> {
     return this.http.get<IEspacio>(BASE_URL + '/' + id);
   }
+
+  getSpacesByIdUser(id): Observable<IEspacio[]> {
+    return this.http.get<IEspacio[]>(BASE_URL + '/usuario/' + id);
+  }
 }

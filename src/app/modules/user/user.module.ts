@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { CallbackComponent } from './callback/callback.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AvatarEditComponent } from './profile/avatar-edit/avatar-edit.component';
+import { PortadaEditComponent } from './profile/portada-edit/portada-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +25,13 @@ import { CallbackComponent } from './callback/callback.component';
     LoginComponent,
     ProfileComponent,
     CallbackComponent,
+    ProfileEditComponent,
+    AvatarEditComponent,
+    PortadaEditComponent,
   ],
   imports: [
     CommonModule,
+    SharedModule,
     NgbModalModule,
     RouterModule,
     ReactiveFormsModule,

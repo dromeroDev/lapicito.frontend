@@ -13,4 +13,6 @@ export interface IUsuario {
   cantidad_lapicitos: number;
   roles: IRol[];
   categorias: ICategoria[];
+  promedioUsuario: number;
+  mp_user_id: number;
 }

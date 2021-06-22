@@ -17,6 +17,7 @@ export class FeedComponent implements OnInit {
   categoriaSelected: ICategoria;
   publishments: IPublicacion[];
   spaces: IEspacio[];
+  searchType: string = 'publishment';
 
   constructor(
     private router: Router,
@@ -55,6 +56,14 @@ export class FeedComponent implements OnInit {
       });
     }
     return arrayIds;
+  }
+
+  changeCategorySelected(categoriaSelected?: ICategoria) {
+    if (this.searchType == 'publishment') {
+      this.getPublishmentsByCategories(categoriaSelected);
+    } else {
+      this.getSpacesByCategories(categoriaSelected);
+    }
   }
 
   getPublishmentsByCategories(categoriaSelected?: ICategoria) {

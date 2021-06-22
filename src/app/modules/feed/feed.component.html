@@ -4,10 +4,10 @@
             <h5 class="text-green text-center">Categorias</h5>
             <ul class="list-group mb-3 mt-4">
                 <li class="list-group-item" [ngClass]="{'active': !categoriaSelected}"
-                    (click)="getPublishmentsByCategories()">Todas</li>
+                    (click)="changeCategorySelected()">Todas</li>
                 <li class="list-group-item"
                     [ngClass]="{'active': categoriaSelected && categoriaSelected.idCategoria === categoria.idCategoria}"
-                    *ngFor="let categoria of categorias" (click)="getPublishmentsByCategories(categoria)">
+                    *ngFor="let categoria of categorias" (click)="changeCategorySelected(categoria)">
                     {{categoria.descripcion}}</li>
             </ul>
             <p class="text-center text-decoration-underline" (click)="goToPreference()">Añadir Categorias</p>
@@ -44,13 +44,13 @@
             <div class="d-flex justify-content-center">
                 <div class="m-2">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="searchType" value="1" checked
-                            (click)="getPublishmentsByCategories()">
+                        <input class="form-check-input" type="radio" name="searchType" [(ngModel)]="searchType"
+                            value="publishment" checked (click)="getPublishmentsByCategories()">
                         <label class="form-check-label" for="inlineRadio1">Publicaciones</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="searchType" value="2"
-                            (click)="getSpacesByCategories()">
+                        <input class="form-check-input" type="radio" name="searchType" [(ngModel)]="searchType"
+                            value="space" (click)="getSpacesByCategories()">
                         <label class="form-check-label" for="inlineRadio2">Espacios</label>
                     </div>
                 </div>
@@ -58,23 +58,25 @@
             <div class="row mt-4" *ngIf="publishments">
                 <div class="col-md-4" *ngFor="let publishment of publishments">
                     <div class="card shadow">
-                        <div class="card-publishment" (click)="showPublishmentDetail(publishment.id)">
-                            <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">{{publishment.titulo}}</strong>
-                                <small>{{publishment.descripcion}}</small>
-                            </div>
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>{{publishment.espacio.categoria.descripcion}}</small>
+                        <div class="card-publishment">
+                            <!--<img src="assets/images/portada.jpg" class="card-publishment-portada">-->
+                            <img class="card-publishment-avatar" [src]="publishment.usuario.avatar_url"
+                                onerror="this.src='assets/images/user-empty-avatar.png';">
+                            <h5 class="text-green" (click)="showPublishmentDetail(publishment.idPublicacion)">
+                                {{publishment.titulo}}</h5>
+                            <p>{{publishment.descripcion | limitCaracters}}</p>
+                            <div class="carf-footer">
+                                <div class="d-flex mb-2">
+                                    <span class="me-2 text-decoration-underline">Categoria:</span>
+                                    <span>{{publishment.espacio.categoria.descripcion}}<i class="fa ms-2 "
+                                            [ngClass]="[publishment.espacio.categoria.icono]"></i></span>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Espacio:</small>
-                                    <small>{{publishment.espacio.descripcion}}</small>
+                                    <span class="me-2 text-decoration-underline">Espacio:</span>
+                                    <span>{{publishment.espacio.titulo}}</span>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -82,21 +84,25 @@
             <div class="row mt-4" *ngIf="spaces">
                 <div class="col-md-4" *ngFor="let space of spaces">
                     <div class="card shadow">
-                        <div class="card-publishment" (click)="showSpaceDetail(space.id)">
-                            <img src="assets/images/portada-matem.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar-3.png" class="card-publishment-avatar">
+                        <div class="card-space">
+                            <img src="assets/images/portada-matem.jpg" class="card-space-portada">
+                            <img class="card-space-avatar" [src]="space.usuario?.avatar_url"
+                                onerror="this.src='assets/images/user-empty-avatar.png';">
                             <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">{{space.descripcion}}</strong>
-                                <!-- <small>Espacio dedicado a Matemática en general. Todos los niveles.</small> -->
+                                <h5 class="mt-4 mb-2 text-green" (click)="showSpaceDetail(space.idEspacio)">
+                                    {{space.titulo}}
+                                </h5>
+                                <p>{{space.descripcion | limitCaracters}}</p>
                             </div>
-                            <div class="p-2">
+                            <div class="ps-2">
                                 <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Categoria:</small>
-                                    <small>{{space.categoria.descripcion}}</small>
+                                    <span class="me-2 text-decoration-underline">Categoria:</span>
+                                    <span>{{space.categoria.descripcion}}<i class="fa ms-2 "
+                                            [ngClass]="[space.categoria.icono]"></i></span>
                                 </div>
                                 <div class="d-flex">
-                                    <small class="me-2 text-decoration-underline">Miembros:</small>
-                                    <small>***</small>
+                                    <span class="me-2 text-decoration-underline">Miembros:</span>
+                                    <span>{{space.cantidadMiembrosEspacio}}</span>
                                 </div>
                             </div>
                         </div>
