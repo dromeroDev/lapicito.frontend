@@ -27,4 +27,8 @@ export class PublishmentService {
   getPublishmentsByIdUser(id): Observable<IPublicacion[]> {
     return this.http.get<IPublicacion[]>(BASE_URL + '/usuario/' + id);
   }
+
+  valorarPublicacion(body) {
+    return this.http.post(env.url_server + '/valoracion', body);
+  }
 }

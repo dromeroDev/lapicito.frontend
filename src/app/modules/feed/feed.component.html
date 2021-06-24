@@ -85,8 +85,9 @@
                 <div class="col-md-4" *ngFor="let space of spaces">
                     <div class="card shadow">
                         <div class="card-space">
-                            <img src="assets/images/portada-matem.jpg" class="card-space-portada">
-                            <img class="card-space-avatar" [src]="space.usuario?.avatar_url"
+                            <img class="card-space-portada" [src]="space.portada_url"
+                                onerror="this.src='assets/images/portada-empty.jpg';">
+                            <img class="card-space-avatar" [src]="space.usuarioPerfilDto.avatar_url"
                                 onerror="this.src='assets/images/user-empty-avatar.png';">
                             <div class="p-2 d-flex flex-column">
                                 <h5 class="mt-4 mb-2 text-green" (click)="showSpaceDetail(space.idEspacio)">

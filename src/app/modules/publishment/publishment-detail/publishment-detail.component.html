@@ -4,86 +4,71 @@
             <div class="row post" *ngIf="publishment">
                 <div class="col-md-9 post-detail">
                     <small class="mb-2">Fecha: {{publishment.fecha_alta | date: 'dd/MM/yyyy'}}</small>
-                    <img src="assets/images/portada.jpg" class="portada mb-3">
-                    <h1>{{publishment.titulo}}</h1>
+                    <!--<img src="assets/images/portada.jpg" class="portada mb-3">-->
+                    <h1 class="text-green">{{publishment.titulo}}</h1>
                     <p>{{publishment.descripcion}}</p>
+                    <button class="btn-lg btn-blue mb-4">Descargar</button>
+                    <strong class="mb-4">Cantidad de descargas: <i>{{(publishment.cantidadDeDescargas === 0) ? 'Aun
+                            no tiene descargas' : publishment.cantidadDeDescargas }}</i></strong>
 
-                    <button class="btn-lg btn-blue">Descargar</button>
-
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Espacio: </strong>
+                            <a
+                                [routerLink]="['/space/' + publishment.espacio.idEspacio]">{{publishment.espacio.titulo}}</a>
+                        </div>
+                        <div class="col-md-6">
+                            <strong class="pt-3">Categoría: </strong>
+                            <span>{{publishment.espacio.categoria.descripcion}} <i class="fa"
+                                    [ngClass]="[publishment.espacio.categoria.icono]"></i></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3 p-4 d-flex flex-column align-items-center">
-                    <img src="assets/images/avatar.png" class="mb-3">
-                    <h5>Autor: {{publishment.usuario.userName}}</h5>
+                    <img [src]="publishment.usuario.avatar_url"
+                        onerror="this.src='assets/images/user-empty-avatar.png';"
+                        class="mb-3 rounded-circle img-thumbnail">
+                    <h5 class="pointer mb-3" [routerLink]="['/user/' + publishment.usuario.id]">Autor:
+                        {{publishment.usuario.userName}}</h5>
                     <button type="button" class="btn-green mb-4">Donar Lapicito</button>
-                    <h5 class="border-top pt-3">Espacio</h5>
-                    <span>{{publishment.espacio.descripcion}}</span>
-                    <h5 class="pt-3">Categoría</h5>
-                    <span>{{publishment.espacio.categoria.descripcion}}</span>
-                    <h5 class="border-top mt-3 pt-3">Cantidad de descargas:</h5>
-                    <span>***</span>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-6">
                     <h3>Valoraciones</h3>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <a href="">Escribir valoración</a>
+                <div class="col-md-6 d-flex justify-content-end" *ngIf="publishment">
+                    <a class="text-decoration-underline text-blue pointer" *ngIf="isNotUserLogged()"
+                        (click)="openCreateValoration()">Escribir
+                        valoración</a>
                 </div>
             </div>
 
-            <div class="row feedback">
-                <div class="col-md-3">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Diego dijo:</strong>
-                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <div class="row feedback" *ngIf="publishment">
+                <ng-container *ngIf="publishment.valoracionDtoList.length > 0">
+                    <div class="col-md-3" *ngFor="let valoracion of publishment.valoracionDtoList">
+                        <div class="card shadow">
+                            <div class="card-publishment">
+                                <div class="p-2 d-flex flex-column">
+                                    <small class="align-self-end"><i>{{valoracion.fecha | date:
+                                            'dd/MM/yyyy'}}</i></small>
+                                    <strong class="mb-2">{{valoracion.nombreUsuario}} dijo:</strong>
+                                    <div class="d-flex mb-2">
+                                        <i class="fa fa-star"
+                                            *ngFor="let star of getArrayStars(valoracion.cantidad_estrellas)"></i>
+                                        <ng-container *ngIf="valoracion.cantidad_estrellas < 5">
+                                            <i class="far fa-star"
+                                                *ngFor="let star of getArrayEmptyStars(valoracion.cantidad_estrellas)"></i>
+                                        </ng-container>
 
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
+                                    </div>
+
+                                    <p>{{valoracion.comentario}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Damian dijo:</strong>
-                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
-
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Rama dijo:</strong>
-                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
-
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card shadow">
-                        <div class="card-publishment">
-                            <div class="p-2 d-flex flex-column">
-                                <strong class="mt-4 mb-2">Ian dijo:</strong>
-                                <div class="d-flex mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
-
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, numquam!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </ng-container>
+                <h4 *ngIf="publishment.valoracionDtoList.length === 0"><i>Aun no tiene valoraciones</i> </h4>
             </div>
 </div>
