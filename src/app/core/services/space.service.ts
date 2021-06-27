@@ -23,4 +23,8 @@ export class SpaceService {
   getSpacesByIdUser(id): Observable<IEspacio[]> {
     return this.http.get<IEspacio[]>(BASE_URL + '/usuario/' + id);
   }
+
+  save(data) {
+    return this.http.post(BASE_URL + '/usuario/portadaUrl', data);
+  }
 }

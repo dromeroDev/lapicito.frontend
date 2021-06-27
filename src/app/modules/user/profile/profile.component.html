@@ -2,15 +2,15 @@
     <div class="d-flex flex-column align-items-center ">
         <div class="container-img-portada" [style.backgroundImage]="'url('+ user.portada_url +')'">
             <div class="rounded p-3 d-flex justify-content-end" (click)="openEditPortada()">
-                <i class="fa fa-edit text-white pointer"></i>
+                <i class="fa fa-edit text-white pointer" [hidden]="isViewer()"></i>
             </div>
             <img class="rounded-circle img-thumbnail pointer" [src]="user.avatar_url"
                 onerror="this.src='assets/images/user-empty-avatar.png';" (click)="openEditAvatar()">
         </div>
     </div>
-    <div class="row border-bottom pb-4">
-        <div class="col-md-12 d-flex justify-content-end">
-            <i class="fa fa-pen pointer p-3" (click)="openEditProfile()"></i>
+    <div class="row border-bottom pb-4 pt-4">
+        <div class="col-md-12 d-flex justify-content-end p-3">
+            <i class="fa fa-pen pointer" (click)="openEditProfile()" [hidden]="isViewer()"></i>
         </div>
         <div class="col-md-4 ps-5">
             <h3>{{user.userName}}</h3>
@@ -29,21 +29,26 @@
                     {{cat.descripcion}}
                 </span>
             </div> -->
-            <a class="btn btn-outline-primary btn-block mt-3 btn-mp" [href]="getUrlMP()" placement="top"
-                ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!" *ngIf="!user.mp_user_id">
-                <img src="assets/images/icon_mp.png">
-                Vincular Mercado Pago</a>
-            <a class="btn btn-outline-danger btn-block mt-3 btn-mp" [href]="getUrlMP()" *ngIf="user.mp_user_id">
-                <img src="assets/images/icon_mp.png">
-                Devincular Mercado Pago</a>
+            <div [hidden]="isViewer()">
+                <a class="btn btn-outline-primary btn-block mt-3 btn-mp" [href]="getUrlMP()" placement="top"
+                    ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!" *ngIf="!user.mp_user_id">
+                    <img src="assets/images/icon_mp.png">
+                    Vincular Mercado Pago</a>
+                <a class="btn btn-outline-danger btn-block mt-3 btn-mp" [href]="getUrlMP()" *ngIf="user.mp_user_id">
+                    <img src="assets/images/icon_mp.png">
+                    Devincular Mercado Pago</a>
+            </div>
+            <div [hidden]="!isViewer()">
+                <button type="button" class="btn-lg p-2 btn-green mt-3" style="width: 70%;">Donar Lapicito</button>
+            </div>
         </div>
     </div>
     <div class="row mt-5 d-flex align-items-center">
         <div class="col-md-6">
-            <h2>Mis publicaciones</h2>
+            <h2>Publicaciones</h2>
         </div>
         <div class="col-md-6 d-flex justify-content-end">
-            <button class="btn-blue">Publicar</button>
+            <button class="btn-blue" [hidden]="isViewer()">Publicar</button>
         </div>
     </div>
     <div class="row mt-4" *ngIf="publishments">
@@ -72,19 +77,19 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5 d-flex align-items-center">
+    <div class="row mt-5 pt-5 border-top d-flex align-items-center">
         <div class="col-md-6">
-            <h2>Mis espacios</h2>
+            <h2>Espacios</h2>
         </div>
-        <div class="col-md-6 d-flex justify-content-end">
+        <!-- <div class="col-md-6 d-flex justify-content-end">
             <button class="btn-blue">Crear</button>
-        </div>
+        </div> -->
     </div>
     <div class="row mt-4" *ngIf="spaces">
         <div class="col-md-4" *ngFor="let space of spaces">
             <div class="card shadow">
                 <div class="card-space">
-                    <img class="card-space-portada" [src]="space.portada_url"
+                    <img class="card-space-portada" [src]="space.viewEspacioDto.portada_url"
                         onerror="this.src='assets/images/portada-empty.jpg';">
                     <div class="p-2 d-flex flex-column">
                         <h5 class="text-green" (click)="showSpaceDetail(space.viewEspacioDto.idEspacio)">

@@ -31,4 +31,12 @@ export class PublishmentService {
   valorarPublicacion(body) {
     return this.http.post(env.url_server + '/valoracion', body);
   }
+
+  save(body) {
+    return this.http.post(BASE_URL + '/usuario/publicacion_file', body);
+  }
+
+  loguearDescarga(id) {
+    return this.http.get(BASE_URL + '/archivo-publicacion/' + id);
+  }
 }

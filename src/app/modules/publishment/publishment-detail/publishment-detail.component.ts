@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { IPublicacion } from 'src/app/core/models/publicacion';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
 import { ValorationCreateComponent } from './valoration-create/valoration-create.component';
@@ -58,5 +59,18 @@ export class PublishmentDetailComponent implements OnInit {
 
   isNotUserLogged() {
     return this.publishment.usuario.id !== +localStorage.getItem('id_usuario');
+  }
+
+  loguearDescarga() {
+    this.publishmentService
+      .loguearDescarga(this.publishment.idPublicacion)
+      .subscribe((res) => {
+        // this.publishmentService
+        //   .getById(this.publishment.idPublicacion)
+        //   .subscribe((res) => {
+        //     this.publishment = res;
+        //   });
+        this.ngOnInit();
+      });
   }
 }

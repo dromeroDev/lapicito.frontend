@@ -83,17 +83,19 @@ export class ProfileComponent implements OnInit {
   }
 
   openEditAvatar() {
-    const options: NgbModalOptions = {
-      animation: true,
-      backdrop: 'static',
-    };
-    const modalRef = this.modalService.open(AvatarEditComponent, options);
-    modalRef.componentInstance.user = this.user;
-    modalRef.closed.subscribe((res) => {
-      this.userService.getDatosPerfil(this.user.id).subscribe((res) => {
-        this.user = res;
+    if (!this.isViewer()) {
+      const options: NgbModalOptions = {
+        animation: true,
+        backdrop: 'static',
+      };
+      const modalRef = this.modalService.open(AvatarEditComponent, options);
+      modalRef.componentInstance.user = this.user;
+      modalRef.closed.subscribe((res) => {
+        this.userService.getDatosPerfil(this.user.id).subscribe((res) => {
+          this.user = res;
+        });
       });
-    });
+    }
   }
 
   openEditPortada() {
@@ -109,5 +111,9 @@ export class ProfileComponent implements OnInit {
         this.user = res;
       });
     });
+  }
+
+  isViewer() {
+    return this.user.id.toString() !== localStorage.getItem('id_usuario');
   }
 }

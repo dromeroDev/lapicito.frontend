@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './core/guards/login.guard';
 import { FeedComponent } from './modules/feed/feed.component';
 import { HomeComponent } from './modules/home/home.component';
+import { PublishmentCreateComponent } from './modules/publishment/publishment-create/publishment-create.component';
 import { PublishmentDetailComponent } from './modules/publishment/publishment-detail/publishment-detail.component';
 import { SpaceDetailComponent } from './modules/space/space-detail/space-detail.component';
 import { CallbackComponent } from './modules/user/callback/callback.component';
@@ -40,10 +41,16 @@ const routes: Routes = [
     canActivate: [LoginGuard],
   },
   {
+    path: 'publishment/create',
+    component: PublishmentCreateComponent,
+    canActivate: [LoginGuard],
+  },
+  {
     path: 'publishment/:id',
     component: PublishmentDetailComponent,
     canActivate: [LoginGuard],
   },
+
   {
     path: 'space/:id',
     component: SpaceDetailComponent,

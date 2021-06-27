@@ -34,7 +34,21 @@ export class CallbackComponent implements OnInit {
     };
     this.userService.generarCredencialesMP(body).subscribe((res) => {
       console.log(res);
-      this.router.navigateByUrl('/user/' + localStorage.getItem('id_usuario'));
+      const body = {
+        access_token: res['access_token'],
+        idUsuario: localStorage.getItem('id_usuario'),
+        live_mode: res['live_mode'],
+        public_key: res['public_key'],
+        refresh_token: res['refresh_token'],
+        scope: res['scope'],
+        token_type: res['token_type'],
+        user_id: res['user_id'],
+      };
+      this.userService.vincularMP(body).subscribe((res) => {
+        this.router.navigateByUrl(
+          '/user/' + localStorage.getItem('id_usuario')
+        );
+      });
     });
   }
 }

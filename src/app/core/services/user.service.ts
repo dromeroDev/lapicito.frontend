@@ -49,4 +49,8 @@ export class UserService {
       headers: headers,
     });
   }
+
+  vincularMP(body) {
+    return this.http.post(env.url_server + '/mercadoPago', body);
+  }
 }

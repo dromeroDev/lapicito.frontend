@@ -17,6 +17,7 @@ export class FeedComponent implements OnInit {
   categoriaSelected: ICategoria;
   publishments: IPublicacion[];
   spaces: IEspacio[];
+  mySpaces: IEspacio[];
   searchType: string = 'publishment';
 
   constructor(
@@ -28,6 +29,7 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategoriesByUser();
+    this.getMySpaces();
   }
 
   showPublishmentDetail(id: number) {
@@ -44,6 +46,14 @@ export class FeedComponent implements OnInit {
       this.categorias = res['categorias'];
       this.getPublishmentsByCategories();
     });
+  }
+
+  getMySpaces() {
+    this.spaceService
+      .getSpacesByIdUser(localStorage.getItem('id_usuario'))
+      .subscribe((res) => {
+        this.mySpaces = res;
+      });
   }
 
   getIdsCategorias() {
