@@ -67,6 +67,14 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  desvincularMP() {
+    this.userService.desvincularMP(this.user.mp_user_id).subscribe((res) => {
+      this.userService.getDatosPerfil(this.user.id).subscribe((res) => {
+        this.user = res;
+      });
+    });
+  }
+
   openEditProfile() {
     const options: NgbModalOptions = {
       animation: true,

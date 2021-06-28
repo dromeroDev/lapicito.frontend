@@ -34,7 +34,8 @@
                     ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!" *ngIf="!user.mp_user_id">
                     <img src="assets/images/icon_mp.png">
                     Vincular Mercado Pago</a>
-                <a class="btn btn-outline-danger btn-block mt-3 btn-mp" [href]="getUrlMP()" *ngIf="user.mp_user_id">
+                <a class="btn btn-outline-danger btn-block mt-3 btn-mp" (click)="desvincularMP()"
+                    *ngIf="user.mp_user_id">
                     <img src="assets/images/icon_mp.png">
                     Devincular Mercado Pago</a>
             </div>

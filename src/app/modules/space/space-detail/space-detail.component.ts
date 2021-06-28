@@ -26,7 +26,7 @@ export class SpaceDetailComponent implements OnInit {
       this.spaceService.getById(params.id).subscribe((res) => {
         this.space = res;
         this.publishmentService
-          .getPublishmentsBySpace(this.space.id)
+          .getPublishmentsBySpace(this.space['idEspacio'])
           .subscribe((res) => {
             this.publishments = res;
           });

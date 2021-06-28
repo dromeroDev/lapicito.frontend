@@ -27,18 +27,21 @@ span {
 .card-publishment {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  .card-publishment-portada {
-    height: 140px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1em;
+  height: 280px;
+  h5 {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
   .card-publishment-avatar {
-    position: absolute;
-    left: 50%;
-    top: 100px;
-    margin-left: -35px;
     border-radius: 100%;
-    width: 60px;
+    width: 80px;
     height: auto;
     border: 2px solid white;
+    margin-bottom: 15px;
   }
 }

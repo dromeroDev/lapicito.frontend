@@ -12,12 +12,14 @@
             </ul>
             <p class="text-center text-decoration-underline" (click)="goToPreference()">Añadir Categorias</p>
             <h5 class="text-green text-center mt-4 pt-4 border-top">Espacios</h5>
-            <ul class="list-group mb-3 mt-4" *ngIf="mySpaces.length>0">
-                <li class="list-group-item" *ngFor="let space of mySpaces"
-                    [routerLink]="['/space/' + space.viewEspacioDto.idEspacio]">
-                    {{space.viewEspacioDto.titulo}}</li>
-            </ul>
-            <p class="text-center" *ngIf="mySpaces.length===0">No tenes espacios</p>
+            <div *ngIf="mySpaces">
+                <ul class="list-group mb-3 mt-4" *ngIf="mySpaces.length>0">
+                    <li class="list-group-item" *ngFor="let space of mySpaces"
+                        [routerLink]="['/space/' + space.viewEspacioDto.idEspacio]">
+                        {{space.viewEspacioDto.titulo}}</li>
+                </ul>
+                <p class="text-center" *ngIf="mySpaces.length===0">No tenes espacios</p>
+            </div>
             <!-- <h5 class="text-green text-center mt-4 pt-4 border-top">Te puede interesar</h5>
             <ul class="list-group mb-3 mt-4">
                 <li class="list-group-item">Informatíca Gral.</li>

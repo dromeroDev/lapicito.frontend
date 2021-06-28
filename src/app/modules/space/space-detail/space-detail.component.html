@@ -35,15 +35,13 @@
 
             <div class="row feedback">
                 <div class="col-md-3" *ngFor="let publishment of publishments">
-                    <div class="card shadow">
-                        <div class="card-publishment" (click)="showPublishmentDetail(publishment.id)">
-                            <img src="assets/images/portada.jpg" class="card-publishment-portada">
-                            <img src="assets/images/avatar.png" class="card-publishment-avatar">
-                            <div class="p-2 d-flex flex-column">
-                                <small class="mt-4 mb-2">Fecha: {{publishment.fecha_alta | date: 'dd/MM/yyyy'}}</small>
-                                <strong class="mb-2">{{publishment.titulo}}</strong>
-                                <small>{{publishment.descripcion}}</small>
-                            </div>
+                    <div class="card shadow mb-3">
+                        <div class="card-publishment ">
+                            <img class="card-publishment-avatar" [src]="publishment.usuario.avatar_url"
+                                onerror="this.src='assets/images/user-empty-avatar.png';">
+                            <h5 class="text-green" (click)="showPublishmentDetail(publishment.idPublicacion)">
+                                {{publishment.titulo}}</h5>
+                            <p>{{publishment.descripcion | limitCaracters}}</p>
                         </div>
                     </div>
                 </div>

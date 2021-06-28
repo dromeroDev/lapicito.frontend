@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../../environments/environment';
@@ -52,5 +52,9 @@ export class UserService {
 
   vincularMP(body) {
     return this.http.post(env.url_server + '/mercadoPago', body);
+  }
+
+  desvincularMP(id) {
+    return this.http.delete(env.url_server + '/mercadoPago/' + id);
   }
 }
