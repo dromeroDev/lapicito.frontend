@@ -21,6 +21,7 @@ import {
 } from 'angularx-social-login';
 import { FeedModule } from './modules/feed/feed.module';
 import { SpaceModule } from './modules/space/space.module';
+import { HttpRequestInterceptor } from './core/interceptors/http-request.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -56,6 +57,11 @@ import { SpaceModule } from './modules/space/space.module';
       } as SocialAuthServiceConfig,
     },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

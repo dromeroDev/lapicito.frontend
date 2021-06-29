@@ -10,6 +10,7 @@ import { SpaceService } from 'src/app/core/services/space.service';
 import { IEspacio } from 'src/app/core/models/espacio';
 import { AvatarEditComponent } from './avatar-edit/avatar-edit.component';
 import { PortadaEditComponent } from './portada-edit/portada-edit.component';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 const CLIENT_ID_LAPICITO = '2974784228505657';
 
@@ -29,7 +30,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private publishmentService: PublishmentService,
     private spaceService: SpaceService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -86,6 +88,8 @@ export class ProfileComponent implements OnInit {
     modalRef.closed.subscribe((res) => {
       this.userService.getDatosPerfil(this.user.id).subscribe((res) => {
         this.user = res;
+        localStorage.setItem('usuario', JSON.stringify(res));
+        this.storageService.emitChange();
       });
     });
   }
@@ -101,6 +105,8 @@ export class ProfileComponent implements OnInit {
       modalRef.closed.subscribe((res) => {
         this.userService.getDatosPerfil(this.user.id).subscribe((res) => {
           this.user = res;
+          localStorage.setItem('usuario', JSON.stringify(res));
+          this.storageService.emitChange();
         });
       });
     }
