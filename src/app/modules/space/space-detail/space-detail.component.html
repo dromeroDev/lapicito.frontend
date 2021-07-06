@@ -10,7 +10,7 @@
                             <h1>{{space.titulo}}</h1>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end">
-                            <button class="btn-blue m-0">Unirse</button>
+                            <button class="btn-blue m-0" (click)="follow()" [hidden]="isAdmin()">Unirse</button>
                         </div>
                     </div>
                     <p>{{space.descripcion}}</p>
@@ -20,8 +20,8 @@
                         onerror="this.src='assets/images/user-empty-avatar.png';"
                         class="mb-3 rounded-circle img-thumbnail">
                     <h5>Administrador: {{space.usuarioPerfilDto.userName}}</h5>
-                    <button type="button" class="btn-green mb-4">Donar Lapicito</button>
-                    <h5 class="border-top pt-3">Miembros</h5>
+                    <button type="button" class="btn-green " [hidden]="isAdmin()">Donar Lapicito</button>
+                    <h5 class="border-top pt-4 mt-4">Miembros</h5>
                     <span>{{space.cantidadMiembrosEspacio}}</span>
                     <h5 class="pt-3">Categoría</h5>
                     <span>{{space.categoria.descripcion}} <i class="fa" [ngClass]="[space.categoria.icono]"></i></span>

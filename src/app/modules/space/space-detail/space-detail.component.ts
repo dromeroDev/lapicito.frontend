@@ -26,7 +26,7 @@ export class SpaceDetailComponent implements OnInit {
       this.spaceService.getById(params.id).subscribe((res) => {
         this.space = res;
         this.publishmentService
-          .getPublishmentsBySpace(this.space['idEspacio'])
+          .getPublishmentsBySpace(this.space.idEspacio)
           .subscribe((res) => {
             this.publishments = res;
           });
@@ -36,5 +36,22 @@ export class SpaceDetailComponent implements OnInit {
 
   showPublishmentDetail(id: number) {
     this.router.navigate(['/publishment/' + id]);
+  }
+
+  isAdmin() {
+    return (
+      this.space.usuarioPerfilDto.id.toString() ===
+      localStorage.getItem('id_usuario')
+    );
+  }
+
+  follow() {
+    this.spaceService
+      .follow(this.space.idEspacio, localStorage.getItem('id_usuario'))
+      .subscribe((res) => {
+        this.spaceService.getById(this.space.idEspacio).subscribe((res) => {
+          this.space = res;
+        });
+      });
   }
 }

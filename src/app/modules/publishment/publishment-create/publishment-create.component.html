@@ -24,8 +24,6 @@
 
                             <button class="btn btn-blue" (click)="step=2" [disabled]="!spaceSelected">Continuar</button>
                         </div>
-
-
                         <div class="d-flex flex-column align-items-center p-3" *ngIf="spaces.length === 0">
                             <span class="text-danger mb-3">No tienes espacio creado, crea uno para poder publicar</span>
                             <button class="btn btn-blue">Crear Espacio</button>

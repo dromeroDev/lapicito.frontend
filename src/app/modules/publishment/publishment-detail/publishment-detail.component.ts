@@ -4,6 +4,7 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { IPublicacion } from 'src/app/core/models/publicacion';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
+import { LapicitoComponent } from 'src/app/shared/components/lapicito/lapicito.component';
 import { ValorationCreateComponent } from './valoration-create/valoration-create.component';
 
 @Component({
@@ -72,5 +73,21 @@ export class PublishmentDetailComponent implements OnInit {
         //   });
         this.ngOnInit();
       });
+  }
+
+  openDonarLapicito() {
+    const options: NgbModalOptions = {
+      animation: true,
+      backdrop: 'static',
+    };
+    const modalRef = this.modalService.open(LapicitoComponent, options);
+    modalRef.componentInstance.idReceptor = this.publishment.usuario.id;
+    modalRef.closed.subscribe((res) => {
+      this.publishmentService
+        .getById(this.publishment.idPublicacion)
+        .subscribe((res) => {
+          this.publishment = res;
+        });
+    });
   }
 }

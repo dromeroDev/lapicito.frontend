@@ -5,6 +5,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LimitCaractersPipe } from './pipes/limit-caracters.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LapicitoComponent } from './components/lapicito/lapicito.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,13 +14,15 @@ import { LoaderComponent } from './components/loader/loader.component';
     FooterComponent,
     LimitCaractersPipe,
     LoaderComponent,
+    LapicitoComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [
     HeaderComponent,
     FooterComponent,
     LimitCaractersPipe,
     LoaderComponent,
+    LapicitoComponent,
   ],
 })
 export class SharedModule {}

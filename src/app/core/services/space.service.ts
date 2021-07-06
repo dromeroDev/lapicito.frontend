@@ -27,4 +27,11 @@ export class SpaceService {
   save(data) {
     return this.http.post(BASE_URL + '/usuario/portadaUrl', data);
   }
+
+  follow(idEspacio, idUsuario) {
+    return this.http.post(
+      BASE_URL + '/unirme/' + idEspacio + '/' + idUsuario,
+      {}
+    );
+  }
 }
