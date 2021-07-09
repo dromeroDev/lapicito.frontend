@@ -63,16 +63,16 @@ export class PublishmentDetailComponent implements OnInit {
   }
 
   loguearDescarga() {
-    this.publishmentService
-      .loguearDescarga(this.publishment.idPublicacion)
-      .subscribe((res) => {
-        // this.publishmentService
-        //   .getById(this.publishment.idPublicacion)
-        //   .subscribe((res) => {
-        //     this.publishment = res;
-        //   });
-        this.ngOnInit();
-      });
+    if (
+      this.publishment.usuario.id.toString() !==
+      localStorage.getItem('id_usuario')
+    ) {
+      this.publishmentService
+        .loguearDescarga(this.publishment.idPublicacion)
+        .subscribe((res) => {
+          this.ngOnInit();
+        });
+    }
   }
 
   openDonarLapicito() {

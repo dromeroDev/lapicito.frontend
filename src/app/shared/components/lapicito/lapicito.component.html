@@ -20,6 +20,13 @@
                 *ngIf="(form.controls.lapicitos.dirty || form.controls.lapicitos.touched) && form.controls.lapicitos.getError('min')">
                 Seleccione al menos un lapicito</small>
         </div>
+        <div class="mb-3">
+            <label class="form-label">Comentario</label>
+            <textarea rows="5" class="form-control" formControlName="comentario"></textarea>
+            <small class="text-danger"
+                *ngIf="(form.controls.comentario.dirty || form.controls.comentario.touched) && form.controls.comentario.getError('required')">Escriba
+                un comentario</small>
+        </div>
         <div class="d-flex flex-column mb-3">
             <i>Tu donación ayuda a que los creadores de contenido se esfuercen en mantener sus publicaciones de
                 calidad.</i>

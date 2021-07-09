@@ -26,7 +26,7 @@
                         class="mb-3 rounded-circle img-thumbnail">
                     <h5 class="pointer mb-3" [routerLink]="['/user/' + publishment.usuario.id]">Autor:
                         {{publishment.usuario.userName}}</h5>
-                    <button type="button" class="btn-green" *ngIf="isNotUserLogged()"
+                    <button type="button" class="btn-green" *ngIf="isNotUserLogged() && publishment.usuario.mp_user_id"
                         (click)="openDonarLapicito()">Donar Lapicito</button>
                 </div>
             </div>

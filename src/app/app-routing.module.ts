@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './core/guards/login.guard';
 import { FeedComponent } from './modules/feed/feed.component';
 import { HomeComponent } from './modules/home/home.component';
+import { LapicitoSuccessComponent } from './modules/lapicito/lapicito-success/lapicito-success.component';
 import { PublishmentCreateComponent } from './modules/publishment/publishment-create/publishment-create.component';
 import { PublishmentDetailComponent } from './modules/publishment/publishment-detail/publishment-detail.component';
 import { SpaceDetailComponent } from './modules/space/space-detail/space-detail.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: 'callback',
     component: CallbackComponent,
+  },
+  {
+    path: 'lapicito/success',
+    component: LapicitoSuccessComponent,
   },
   {
     path: '**',

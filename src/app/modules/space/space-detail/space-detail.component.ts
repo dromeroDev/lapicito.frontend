@@ -13,6 +13,7 @@ import { SpaceService } from 'src/app/core/services/space.service';
 export class SpaceDetailComponent implements OnInit {
   space: IEspacio;
   publishments: IPublicacion[];
+  follower: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +32,12 @@ export class SpaceDetailComponent implements OnInit {
             this.publishments = res;
           });
       });
+
+      this.spaceService
+        .isFollower(params.id, localStorage.getItem('id_usuario'))
+        .subscribe((res) => {
+          this.follower = res;
+        });
     });
   }
 

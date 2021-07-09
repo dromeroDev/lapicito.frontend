@@ -14,4 +14,8 @@ export class LapicitoService {
       body
     );
   }
+
+  save(body) {
+    return this.http.post(env.url_server + '/lapicito', body);
+  }
 }

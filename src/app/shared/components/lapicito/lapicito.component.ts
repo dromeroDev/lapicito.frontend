@@ -24,6 +24,7 @@ export class LapicitoComponent implements OnInit {
   formBuild() {
     this.form = new FormGroup({
       lapicitos: new FormControl(0, [Validators.required, Validators.min(1)]),
+      comentario: new FormControl('', [Validators.required]),
     });
   }
 
@@ -40,6 +41,7 @@ export class LapicitoComponent implements OnInit {
       cantidadLapicitos: this.form.controls.lapicitos.value,
       id_Receptor: this.idReceptor,
       id_donador: localStorage.getItem('id_usuario'),
+      comentario: this.form.controls.comentario.value,
     };
     this.lapicitoService.donar(body).subscribe((res) => {
       window.location.href = res['mensaje'];

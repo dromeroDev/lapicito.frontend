@@ -34,4 +34,10 @@ export class SpaceService {
       {}
     );
   }
+
+  isFollower(idEspacio, idUsuario) {
+    return this.http.get(
+      BASE_URL + '/seguidores/' + idEspacio + '/' + idUsuario
+    );
+  }
 }

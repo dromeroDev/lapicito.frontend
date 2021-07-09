@@ -22,6 +22,7 @@ import {
 import { FeedModule } from './modules/feed/feed.module';
 import { SpaceModule } from './modules/space/space.module';
 import { HttpRequestInterceptor } from './core/interceptors/http-request.interceptor';
+import { LapicitoModule } from './modules/lapicito/lapicito.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { HttpRequestInterceptor } from './core/interceptors/http-request.interce
     FeedModule,
     AppRoutingModule,
     SocialLoginModule,
+    LapicitoModule,
   ],
   providers: [
     {
