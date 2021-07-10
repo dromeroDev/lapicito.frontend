@@ -17,7 +17,7 @@
                     <li class="list-group-item" *ngFor="let space of mySpaces"
                         [routerLink]="['/space/' + space.viewEspacioDto.idEspacio]">
                         {{space.viewEspacioDto.titulo}} <i class="fas fa-user-shield" placement="right"
-                            ngbTooltip="Admin" *ngIf="isAdminSpace(space.idUsuario)"></i>
+                            ngbTooltip="Admin" *ngIf="isAdminSpace(space.viewEspacioDto.usuarioPerfilDto.id)"></i>
                     </li>
                 </ul>
                 <p class="text-center" *ngIf="mySpaces.length===0">No tenes espacios</p>
