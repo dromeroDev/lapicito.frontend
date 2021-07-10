@@ -259,7 +259,7 @@ input {
   cursor: pointer;
 }
 
-.active {
+li.active {
   background-color: $green-primary;
   color: white;
   border: 1px solid $green-primary;

@@ -11,6 +11,8 @@ import { IEspacio } from 'src/app/core/models/espacio';
 import { AvatarEditComponent } from './avatar-edit/avatar-edit.component';
 import { PortadaEditComponent } from './portada-edit/portada-edit.component';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { LapicitoService } from 'src/app/core/services/lapicito.service';
+import { LapicitoRecivedComponent } from '../../lapicito/lapicito-recived/lapicito-recived.component';
 
 const CLIENT_ID_LAPICITO = '2974784228505657';
 
@@ -42,11 +44,13 @@ export class ProfileComponent implements OnInit {
           this.user.portada_url = 'assets/images/portada-empty.jpg';
         }
       });
+
       this.publishmentService
         .getPublishmentsByIdUser(params.id)
         .subscribe((res) => {
           this.publishments = res;
         });
+
       this.spaceService.getSpacesByIdUser(params.id).subscribe((res) => {
         this.spaces = res;
       });
@@ -129,5 +133,15 @@ export class ProfileComponent implements OnInit {
 
   isViewer() {
     return this.user.id.toString() !== localStorage.getItem('id_usuario');
+  }
+
+  showDonaciones() {
+    const options: NgbModalOptions = {
+      animation: true,
+      backdrop: 'static',
+      size: 'lg',
+    };
+    const modalRef = this.modalService.open(LapicitoRecivedComponent, options);
+    modalRef.componentInstance.user = this.user;
   }
 }

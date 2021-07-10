@@ -59,6 +59,11 @@ export class SpaceDetailComponent implements OnInit {
         this.spaceService.getById(this.space.idEspacio).subscribe((res) => {
           this.space = res;
         });
+        this.spaceService
+          .isFollower(this.space.idEspacio, localStorage.getItem('id_usuario'))
+          .subscribe((res) => {
+            this.follower = res;
+          });
       });
   }
 }

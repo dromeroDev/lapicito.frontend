@@ -40,4 +40,8 @@ export class SpaceService {
       BASE_URL + '/seguidores/' + idEspacio + '/' + idUsuario
     );
   }
+
+  search(body, value): Observable<IEspacio[]> {
+    return this.http.post<IEspacio[]>(BASE_URL + '/search/' + value, body);
+  }
 }

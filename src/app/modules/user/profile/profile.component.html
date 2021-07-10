@@ -40,7 +40,11 @@
                     Devincular Mercado Pago</a>
             </div>
             <div [hidden]="!isViewer() || !user.mp_user_id">
-                <button type="button" class="btn-lg p-2 btn-green mt-3" style="width: 70%;">Donar Lapicito</button>
+                <h4 class="text-green pointer" (click)="showDonaciones()" placement="top"
+                    ngbTooltip="Hace click para mirar los comentarios que le dejaron!"><img
+                        src="assets/images/logo_new2.svg" alt="logo de la marca" style="width: 30px;">
+                    Lapicitos recibidos: {{user.cantidad_lapicitos}}</h4>
+                <button type="button" class="btn-lg p-2 btn-green mt-1" style="width: 70%;">Donar Lapicito</button>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ export interface IPublicacion {
   es_anuncio: boolean;
   activo: boolean;
   fecha_alta: string;
+  promedioValoracion: number;
   usuario: IUsuario;
   espacio: IEspacio;
   valoracionDtoList: IValoracion[];

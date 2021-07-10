@@ -39,4 +39,8 @@ export class PublishmentService {
   loguearDescarga(id) {
     return this.http.get(BASE_URL + '/archivo-publicacion/' + id);
   }
+
+  search(body, value): Observable<IPublicacion[]> {
+    return this.http.post<IPublicacion[]>(BASE_URL + '/search/' + value, body);
+  }
 }
