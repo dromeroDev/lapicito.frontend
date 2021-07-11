@@ -5,6 +5,7 @@ import { IValoracion } from './valoracion';
 export interface IPublicacion {
   id: number;
   idPublicacion: number;
+  cantidadDeDescargas: number;
   titulo: string;
   descripcion: string;
   url_adjunto: string;

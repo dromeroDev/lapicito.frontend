@@ -73,6 +73,14 @@ export class FeedComponent implements OnInit {
         .getPublicacionesMasValoradas(body)
         .subscribe((res) => {
           this.generateRankingPublicacionesMasValoradas(res);
+          this.rankingService.getEspaciosMasSeguidos(body).subscribe((res) => {
+            this.generateRankingEspaciosMasSeguidos(res);
+            this.rankingService
+              .getPublicacionesMasDescargadas(body)
+              .subscribe((res) => {
+                this.generateRankingPublicacionesMasDescargadas(res);
+              });
+          });
         });
     });
   }
@@ -103,6 +111,38 @@ export class FeedComponent implements OnInit {
         position: index + 1,
         description: publicacion.titulo,
         value: publicacion.valoracionDtoList.length,
+      };
+      ranking.items.push(item);
+    });
+    this.rankings.push(ranking);
+  }
+
+  generateRankingEspaciosMasSeguidos(espacios: IEspacio[]) {
+    let ranking: IRanking = {
+      title: 'Espacios con mas seguidores',
+      items: [],
+    };
+    espacios.forEach((espacio, index) => {
+      let item: IItemRanking = {
+        position: index + 1,
+        description: espacio.titulo,
+        value: espacio.cantidadMiembrosEspacio,
+      };
+      ranking.items.push(item);
+    });
+    this.rankings.push(ranking);
+  }
+
+  generateRankingPublicacionesMasDescargadas(publicaciones: IPublicacion[]) {
+    let ranking: IRanking = {
+      title: 'Publicaciones con mas descargas',
+      items: [],
+    };
+    publicaciones.forEach((publicacion, index) => {
+      let item: IItemRanking = {
+        position: index + 1,
+        description: publicacion.titulo,
+        value: publicacion.cantidadDeDescargas,
       };
       ranking.items.push(item);
     });

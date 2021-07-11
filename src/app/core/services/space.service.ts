@@ -28,9 +28,22 @@ export class SpaceService {
     return this.http.post(BASE_URL + '/usuario/portadaUrl', data);
   }
 
+  savePortada(file, id) {
+    const data: FormData = new FormData();
+    data.append('portadaImg', file);
+    return this.http.post(BASE_URL + '/portadaUrl/' + id, data);
+  }
+
   follow(idEspacio, idUsuario) {
     return this.http.post(
       BASE_URL + '/unirme/' + idEspacio + '/' + idUsuario,
+      {}
+    );
+  }
+
+  unfollow(idEspacio, idUsuario) {
+    return this.http.post(
+      BASE_URL + '/dejarDeSeguir/' + idEspacio + '/' + idUsuario,
       {}
     );
   }

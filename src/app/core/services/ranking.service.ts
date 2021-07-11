@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../../environments/environment';
+import { IEspacio } from '../models/espacio';
 import { IPublicacion } from '../models/publicacion';
 import { IUsuario } from '../models/usuario';
 
@@ -20,6 +21,17 @@ export class RankingService {
   getPublicacionesMasValoradas(body): Observable<IPublicacion[]> {
     return this.http.post<IPublicacion[]>(
       BASE_URL + '/publicacionValorada',
+      body
+    );
+  }
+
+  getEspaciosMasSeguidos(body): Observable<IEspacio[]> {
+    return this.http.post<IEspacio[]>(BASE_URL + '/espacioSeguido', body);
+  }
+
+  getPublicacionesMasDescargadas(body): Observable<IPublicacion[]> {
+    return this.http.post<IPublicacion[]>(
+      BASE_URL + '/publicacionDescargada',
       body
     );
   }

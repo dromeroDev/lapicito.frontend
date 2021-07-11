@@ -26,6 +26,9 @@ export class SpaceDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.spaceService.getById(params.id).subscribe((res) => {
         this.space = res;
+        if (this.space.portada_url.includes('null')) {
+          this.space.portada_url = 'assets/images/portada-empty.jpg';
+        }
         this.publishmentService
           .getPublishmentsBySpace(this.space.idEspacio)
           .subscribe((res) => {
@@ -52,9 +55,31 @@ export class SpaceDetailComponent implements OnInit {
     );
   }
 
+  isViewer() {
+    return (
+      this.space.usuarioPerfilDto.id.toString() !==
+      localStorage.getItem('id_usuario')
+    );
+  }
+
   follow() {
     this.spaceService
       .follow(this.space.idEspacio, localStorage.getItem('id_usuario'))
+      .subscribe((res) => {
+        this.spaceService.getById(this.space.idEspacio).subscribe((res) => {
+          this.space = res;
+        });
+        this.spaceService
+          .isFollower(this.space.idEspacio, localStorage.getItem('id_usuario'))
+          .subscribe((res) => {
+            this.follower = res;
+          });
+      });
+  }
+
+  unfollow() {
+    this.spaceService
+      .unfollow(this.space.idEspacio, localStorage.getItem('id_usuario'))
       .subscribe((res) => {
         this.spaceService.getById(this.space.idEspacio).subscribe((res) => {
           this.space = res;

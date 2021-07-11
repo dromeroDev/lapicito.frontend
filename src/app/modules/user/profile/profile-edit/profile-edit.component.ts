@@ -51,9 +51,14 @@ export class ProfileEditComponent implements OnInit {
       telefono: this.form.controls.telefono.value,
       userName: this.form.controls.userName.value,
     };
-    this.serviceUsuario.savePerfil(body, this.user.id).subscribe((res) => {
-      console.log(res);
-      this.close();
-    });
+    this.serviceUsuario.savePerfil(body, this.user.id).subscribe(
+      (res) => {
+        console.log(res);
+        this.close();
+      },
+      (err) => {
+        alert(err.mensaje);
+      }
+    );
   }
 }

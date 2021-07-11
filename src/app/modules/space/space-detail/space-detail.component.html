@@ -12,9 +12,11 @@
                         <div class="col-md-6 d-flex justify-content-end" *ngIf="!isAdmin() && !follower">
                             <button class="btn-blue m-0" (click)="follow()">Unirse</button>
                         </div>
-                        <div class="col-md-6 d-flex justify-content-end" *ngIf="!isAdmin() && follower">
+                        <div class="col-md-6 d-flex flex-column align-items-end" *ngIf="!isAdmin() && follower">
                             <h5 class="text-green" style="text-align: right;"><i class="fa fa-check"></i> Estás unido al
                                 espacio</h5>
+                            <small class="text-danger text-decoration-underline pointer" (click)="unfollow()">Dejar
+                                espacio</small>
                         </div>
                     </div>
                     <p>{{space.descripcion}}</p>

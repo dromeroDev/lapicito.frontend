@@ -6,17 +6,17 @@ html,
 body {
   height: 100%;
   transition: 0.3s ease all;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif !important;
   background-color: $green-background;
 
   &.dark {
     background: $body_dark_background;
     color: white;
   }
-}
-
-body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif !important;
 }
 
 h1,
@@ -60,6 +60,18 @@ header {
         color: $green_dark_primary;
       }
     }
+
+    .dropdown-menu {
+      background: $header_dark_background;
+      box-shadow: $shadow_dark;
+      a {
+        color: $white-dark;
+        &:hover {
+          background-color: $black-main;
+          color: $green_dark_primary;
+        }
+      }
+    }
   }
 }
 
@@ -86,12 +98,15 @@ footer {
   }
 }
 
-input {
+input,
+select,
+textarea {
   border: 1px solid $gray-border-input-primary;
 
   body.dark & {
     // border: 1px solid $green-dark-primary;
     background-color: #4c5065;
+    color: #dbdbdb;
   }
 }
 
@@ -132,6 +147,33 @@ input {
 .card {
   body.dark & {
     background-color: transparent;
+  }
+}
+
+.list-group {
+  .list-group-item {
+    body.dark & {
+      background-color: transparent;
+      color: white;
+      border-color: #dbdbdb;
+      &:hover {
+        background-color: $blue-primary;
+      }
+    }
+  }
+}
+
+.modal-content {
+  body.dark & {
+    background-color: $body_dark_background;
+    color: white;
+  }
+}
+
+.form-control:disabled {
+  body.dark & {
+    background-color: $body_dark_background;
+    color: white;
   }
 }
 

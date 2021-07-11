@@ -94,6 +94,9 @@ export class ProfileComponent implements OnInit {
         this.user = res;
         localStorage.setItem('usuario', JSON.stringify(res));
         this.storageService.emitChange();
+        if (this.user.portada_url.includes('null')) {
+          this.user.portada_url = 'assets/images/portada-empty.jpg';
+        }
       });
     });
   }
@@ -111,6 +114,9 @@ export class ProfileComponent implements OnInit {
           this.user = res;
           localStorage.setItem('usuario', JSON.stringify(res));
           this.storageService.emitChange();
+          if (this.user.portada_url.includes('null')) {
+            this.user.portada_url = 'assets/images/portada-empty.jpg';
+          }
         });
       });
     }

@@ -14,7 +14,7 @@
                     *ngFor="let star of stars"></i>
             </div>
         </div>
-        <div class="d-flex flex-column mb-3">
+        <div class="d-flex flex-column">
             <label class="form-label">Comentario</label>
             <textarea class="form-control" formControlName="comentario"></textarea>
         </div>
@@ -24,7 +24,7 @@
             comentario es
             requerido</small>
 
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-6">
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-secondary" (click)="dismiss()">Cancelar</button>
