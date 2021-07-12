@@ -87,7 +87,7 @@ export class FeedComponent implements OnInit {
 
   generateRankingUsuariosMasDonados(usuarios: IUsuario[]) {
     let ranking: IRanking = {
-      title: 'Usuarios mas donados',
+      title: 'Usuarios más donados',
       items: [],
     };
     usuarios.forEach((usuario, index) => {
@@ -103,7 +103,7 @@ export class FeedComponent implements OnInit {
 
   generateRankingPublicacionesMasValoradas(publicaciones: IPublicacion[]) {
     let ranking: IRanking = {
-      title: 'Publicaciones mas valoradas',
+      title: 'Publicaciones más valoradas',
       items: [],
     };
     publicaciones.forEach((publicacion, index) => {
@@ -119,7 +119,7 @@ export class FeedComponent implements OnInit {
 
   generateRankingEspaciosMasSeguidos(espacios: IEspacio[]) {
     let ranking: IRanking = {
-      title: 'Espacios con mas seguidores',
+      title: 'Espacios con más seguidores',
       items: [],
     };
     espacios.forEach((espacio, index) => {
@@ -135,7 +135,7 @@ export class FeedComponent implements OnInit {
 
   generateRankingPublicacionesMasDescargadas(publicaciones: IPublicacion[]) {
     let ranking: IRanking = {
-      title: 'Publicaciones con mas descargas',
+      title: 'Publicaciones con más descargas',
       items: [],
     };
     publicaciones.forEach((publicacion, index) => {

@@ -7,12 +7,14 @@ import { LimitCaractersPipe } from './pipes/limit-caracters.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LapicitoComponent } from './components/lapicito/lapicito.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LimitRankCaractersPipe } from './pipes/limit-rank-caracters.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     LimitCaractersPipe,
+    LimitRankCaractersPipe,
     LoaderComponent,
     LapicitoComponent,
   ],
@@ -21,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     LimitCaractersPipe,
+    LimitRankCaractersPipe,
     LoaderComponent,
     LapicitoComponent,
   ],

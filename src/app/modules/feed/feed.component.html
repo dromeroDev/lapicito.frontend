@@ -14,10 +14,15 @@
             <h4 class="text-green text-center mt-4 pt-4 border-top">Espacios</h4>
             <div *ngIf="mySpaces">
                 <ul class="list-group mb-3 mt-4" *ngIf="mySpaces.length>0">
-                    <li class="list-group-item" *ngFor="let space of mySpaces"
+                    <li class="list-group-item d-flex justify-content-between" *ngFor="let space of mySpaces"
                         [routerLink]="['/space/' + space.viewEspacioDto.idEspacio]">
-                        {{space.viewEspacioDto.titulo}} <i class="fas fa-user-shield" placement="right"
-                            ngbTooltip="Admin" *ngIf="isAdminSpace(space.viewEspacioDto.usuarioPerfilDto.id)"></i>
+                        <span>
+                            {{space.viewEspacioDto.titulo}}
+                        </span>
+                        <span>
+                            <i class="fas fa-user-shield" placement="right" ngbTooltip="Admin"
+                                *ngIf="isAdminSpace(space.viewEspacioDto.usuarioPerfilDto.id)"></i>
+                        </span>
                     </li>
                 </ul>
                 <p class="text-center" *ngIf="mySpaces.length===0">No tenes espacios</p>
@@ -32,21 +37,24 @@
                             <li class="list-group-item">
                                 <div class="d-flex justify-content-between">
                                     <span><img src="assets/images/ranking-oro.png"
-                                            style="width: 20px; margin-right: 10px;">{{ranking.items[0].description}}</span>
+                                            style="width: 20px; margin-right: 10px;">{{ranking.items[0].description |
+                                        limitRankCaracters}}</span>
                                     <span>{{ranking.items[0].value}}</span>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="d-flex justify-content-between">
                                     <span><img src="assets/images/ranking-plata.png"
-                                            style="width: 20px; margin-right: 10px;">{{ranking.items[1].description}}</span>
+                                            style="width: 20px; margin-right: 10px;">{{ranking.items[1].description |
+                                        limitRankCaracters}}</span>
                                     <span>{{ranking.items[1].value}}</span>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="d-flex justify-content-between">
                                     <span><img src="assets/images/ranking-bronce.png"
-                                            style="width: 20px; margin-right: 10px;">{{ranking.items[2].description}}</span>
+                                            style="width: 20px; margin-right: 10px;">{{ranking.items[2].description |
+                                        limitRankCaracters}}</span>
                                     <span>{{ranking.items[2].value}}</span>
                                 </div>
                             </li>
