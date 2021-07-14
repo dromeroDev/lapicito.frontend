@@ -1,7 +1,6 @@
   
 # Stage 0, based on Node.js, to build and compile Angular
-FROM alpine
-RUN apk add --update nodejs nodejs-npm
+FROM node:alpine as node
 WORKDIR /app
 COPY ./ /app/
 RUN npm install
