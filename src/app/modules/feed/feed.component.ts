@@ -24,6 +24,8 @@ export class FeedComponent implements OnInit {
   searchType: string = 'publishment';
   searchValue: string;
   rankings: IRanking[] = [];
+  showPublishment: number = 9;
+  showSpaces: number = 9;
 
   constructor(
     private router: Router,
@@ -163,8 +165,10 @@ export class FeedComponent implements OnInit {
 
   changeCategorySelected(categoriaSelected?: ICategoria) {
     if (this.searchType == 'publishment') {
+      this.showPublishment = 9;
       this.getPublishmentsByCategories(categoriaSelected);
     } else {
+      this.showSpaces = 9;
       this.getSpacesByCategories(categoriaSelected);
     }
   }
@@ -173,6 +177,7 @@ export class FeedComponent implements OnInit {
     this.spaces = null;
     this.categoriaSelected = categoriaSelected ? categoriaSelected : null;
     this.searchValue = '';
+    this.showPublishment = 9;
     const body = {
       categorias: this.getIdsCategorias(),
     };
@@ -191,6 +196,7 @@ export class FeedComponent implements OnInit {
     this.publishments = null;
     this.categoriaSelected = categoriaSelected ? categoriaSelected : null;
     this.searchValue = '';
+    this.showSpaces = 9;
     const body = {
       categorias: this.getIdsCategorias(),
     };
@@ -218,6 +224,7 @@ export class FeedComponent implements OnInit {
       categorias: this.getIdsCategorias(),
     };
     if (this.searchType == 'publishment') {
+      this.showPublishment = 9;
       this.publishmentService
         .search(body, this.searchValue)
         .subscribe((res) => {
@@ -228,6 +235,7 @@ export class FeedComponent implements OnInit {
           this.publishments = [];
         };
     } else if (this.searchType == 'space') {
+      this.showSpaces = 9;
       this.spaceService.search(body, this.searchValue).subscribe((res) => {
         this.spaces = res;
       }),
@@ -236,5 +244,13 @@ export class FeedComponent implements OnInit {
           this.publishments = [];
         };
     }
+  }
+
+  showMorePublishment() {
+    this.showPublishment += 9;
+  }
+
+  showMoreSpaces() {
+    this.showSpaces += 9;
   }
 }
