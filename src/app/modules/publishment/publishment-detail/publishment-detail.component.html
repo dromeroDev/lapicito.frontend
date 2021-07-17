@@ -44,8 +44,8 @@
             <div class="row feedback" *ngIf="publishment">
                 <ng-container *ngIf="publishment.valoracionDtoList.length > 0">
                     <div class="col-md-3" *ngFor="let valoracion of publishment.valoracionDtoList">
-                        <div class="card shadow">
-                            <div class="card-publishment">
+                        <div class="card shadow mb-2">
+                            <div class="card-valoracion">
                                 <div class="p-2 d-flex flex-column">
                                     <small class="align-self-end"><i>{{valoracion.fecha | date:
                                             'dd/MM/yyyy'}}</i></small>
