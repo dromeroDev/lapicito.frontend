@@ -64,8 +64,8 @@
                     <!--<img class="card-publishment-avatar" [src]="publishment.usuario.avatar_url"
                         onerror="this.src='assets/images/user-empty-avatar.png';">-->
                     <h5 class="text-green" (click)="showPublishmentDetail(publishment.idPublicacion)">
-                        {{publishment.titulo}}</h5>
-                    <p>{{publishment.descripcion | limitCaracters}}</p>
+                        {{publishment.titulo | limitCaracters: 40}}</h5>
+                    <p>{{publishment.descripcion | limitCaracters : 70}}</p>
                     <div class="carf-footer">
                         <div class="d-flex mb-2">
                             <span class="me-2 text-decoration-underline">Categoria:</span>
