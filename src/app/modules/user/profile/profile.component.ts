@@ -69,7 +69,7 @@ export class ProfileComponent implements OnInit {
     return (
       'https://auth.mercadopago.com.ar/authorization?client_id=' +
       CLIENT_ID_LAPICITO +
-      '&response_type=code&platform_id=mp&redirect_uri=http://localhost:4200/callback'
+      '&response_type=code&platform_id=mp&redirect_uri=http://lapicito.frontend.s3-website.us-east-2.amazonaws.com/callback'
     );
   }
 
