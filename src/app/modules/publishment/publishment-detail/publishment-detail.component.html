@@ -12,7 +12,7 @@
                     <h1 class="text-green">{{publishment.titulo}}</h1>
                     <p>{{publishment.descripcion}}</p>
                     <a class="btn-lg btn-blue mb-4 text-center text-decoration-none" href="{{publishment.url_adjunto}}"
-                        (click)="loguearDescarga()">Descargar</a>
+                        target="_blank" (click)="loguearDescarga()">Descargar</a>
                     <strong class="mb-4">Cantidad de descargas: <i>{{(publishment.cantidadDeDescargas === 0) ?
                             'Aún no tiene descargas' : publishment.cantidadDeDescargas }}</i></strong>
                     <div class="d-flex">
