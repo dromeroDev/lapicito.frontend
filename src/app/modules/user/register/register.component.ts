@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUsuarioNuevo } from 'src/app/core/models/usuario-nuevo';
+import { StorageService } from 'src/app/core/services/storage.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -12,7 +13,11 @@ import { UserService } from 'src/app/core/services/user.service';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -88,7 +93,7 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('token', res['token']);
         localStorage.setItem('id_usuario', res['id_usuario']);
         this.userService.getDatosPerfil(res['id_usuario']).subscribe((data) => {
-          localStorage.setItem('usuario', JSON.stringify(data));
+          this.storageService.setItem('usuario', JSON.stringify(data));
           if (res['tieneCategorias']) {
             this.router.navigate(['/feed']);
           } else {

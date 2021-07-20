@@ -81,7 +81,11 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="publishments.length==0">
+            <h3 class="text-blue">No tenes publicaciones</h3>
+        </div>
     </div>
+
     <div class="row mt-5 pt-5 border-top d-flex align-items-center">
         <div class="col-md-6">
             <h2>Espacios</h2>
@@ -114,6 +118,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div *ngIf="spaces.length==0">
+            <h3 class="text-blue">No tenes espacios</h3>
         </div>
     </div>
 </div>

@@ -27,7 +27,7 @@
                 </ul>
                 <p class="text-center" *ngIf="mySpaces.length===0">No tenes espacios</p>
             </div>
-            <h4 class="text-green text-center mt-4 pt-4 border-top ">Rankings</h4>
+            <h4 class="text-green text-center mt-4 pt-4 border-top " *ngIf="rankings && rankings.length>0">Rankings</h4>
             <ngb-carousel class="border-bottom pb-5" *ngIf="rankings" [showNavigationArrows]="false"
                 [showNavigationIndicators]="true">
                 <ng-template ngbSlide *ngFor="let ranking of rankings">
@@ -124,6 +124,10 @@
                         *ngIf="showPublishment < this.publishments.length">Ver mas</button>
                 </div>
             </div>
+            <div class="mt-4 text-center" *ngIf="!publishments && searchType == 'publishment'">
+                <h3 class="text-blue">Lamentablemente la categor&iacute;a seleccionada no contiene publicaciones</h3>
+                <img class="img-fluid" src="assets/images/question.png" alt="">
+            </div>
             <div class="row mt-4" *ngIf="spaces">
                 <div class="col-md-4" *ngFor="let space of spaces | slice:0:showSpaces">
                     <div class="card shadow">
@@ -156,6 +160,10 @@
                     <button class="btn-green-outside" (click)="showMoreSpaces()"
                         *ngIf="showSpaces < this.spaces.length">Ver mas</button>
                 </div>
+            </div>
+            <div class="mt-4 text-center" *ngIf="!spaces && searchType == 'space'">
+                <h3 class="text-blue">Lamentablemente la categor&iacute;a seleccionada no contiene espacios</h3>
+                <img class="img-fluid" src="assets/images/question.png" alt="">
             </div>
         </div>
     </div>

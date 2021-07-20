@@ -100,7 +100,9 @@ export class FeedComponent implements OnInit {
       };
       ranking.items.push(item);
     });
-    this.rankings.push(ranking);
+    if (ranking.items.length > 0) {
+      this.rankings.push(ranking);
+    }
   }
 
   generateRankingPublicacionesMasValoradas(publicaciones: IPublicacion[]) {
@@ -116,7 +118,9 @@ export class FeedComponent implements OnInit {
       };
       ranking.items.push(item);
     });
-    this.rankings.push(ranking);
+    if (ranking.items.length > 0) {
+      this.rankings.push(ranking);
+    }
   }
 
   generateRankingEspaciosMasSeguidos(espacios: IEspacio[]) {
@@ -132,7 +136,9 @@ export class FeedComponent implements OnInit {
       };
       ranking.items.push(item);
     });
-    this.rankings.push(ranking);
+    if (ranking.items.length > 0) {
+      this.rankings.push(ranking);
+    }
   }
 
   generateRankingPublicacionesMasDescargadas(publicaciones: IPublicacion[]) {
@@ -148,7 +154,9 @@ export class FeedComponent implements OnInit {
       };
       ranking.items.push(item);
     });
-    this.rankings.push(ranking);
+    if (ranking.items.length > 0) {
+      this.rankings.push(ranking);
+    }
   }
 
   getIdsCategorias() {
@@ -186,8 +194,7 @@ export class FeedComponent implements OnInit {
         this.publishments = res;
       },
       (err) => {
-        alert('No hay publicaciones para la categoria seleccionada');
-        this.publishments = [];
+        this.publishments = null;
       }
     );
   }
@@ -205,8 +212,7 @@ export class FeedComponent implements OnInit {
         this.spaces = res;
       },
       (err) => {
-        alert('No hay espacios para la categoria seleccionada');
-        this.spaces = [];
+        this.spaces = null;
       }
     );
   }
@@ -231,8 +237,7 @@ export class FeedComponent implements OnInit {
           this.publishments = res;
         }),
         (err) => {
-          alert('No hay publicaciones para la categoria seleccionada');
-          this.publishments = [];
+          this.publishments = null;
         };
     } else if (this.searchType == 'space') {
       this.showSpaces = 9;
@@ -240,8 +245,7 @@ export class FeedComponent implements OnInit {
         this.spaces = res;
       }),
         (err) => {
-          alert('No hay espacios para la categoria seleccionada');
-          this.publishments = [];
+          this.publishments = null;
         };
     }
   }
