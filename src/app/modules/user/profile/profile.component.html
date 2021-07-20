@@ -37,7 +37,7 @@
                 <a class="btn btn-outline-danger btn-block mt-3 btn-mp" (click)="desvincularMP()"
                     *ngIf="user.mp_user_id">
                     <img src="assets/images/icon_mp.png">
-                    Devincular Mercado Pago</a>
+                    Desvincular Mercado Pago</a>
             </div>
             <div [hidden]="!isViewer() || !user.mp_user_id">
                 <h4 class="text-green pointer" (click)="showDonaciones()" placement="top"
@@ -68,7 +68,7 @@
                     <p>{{publishment.descripcion | limitCaracters : 70}}</p>
                     <div class="carf-footer">
                         <div class="d-flex mb-2">
-                            <span class="me-2 text-decoration-underline">Categoria:</span>
+                            <span class="me-2 text-decoration-underline">Categor&iacute;a:</span>
                             <span>{{publishment.espacio.categoria.descripcion}}<i class="fa ms-2 "
                                     [ngClass]="[publishment.espacio.categoria.icono]"></i></span>
                         </div>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="ps-2">
                         <div class="d-flex">
-                            <span class="me-2 text-decoration-underline">Categoria:</span>
+                            <span class="me-2 text-decoration-underline">Categor&iacute;a:</span>
                             <span>{{space.viewEspacioDto.categoria.descripcion}}<i class="fa ms-2 "
                                     [ngClass]="[space.viewEspacioDto.categoria.icono]"></i></span>
                         </div>
