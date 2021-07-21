@@ -26,6 +26,7 @@ export class FeedComponent implements OnInit {
   rankings: IRanking[] = [];
   showPublishment: number = 9;
   showSpaces: number = 9;
+  msjSinResultados: boolean = false;
 
   constructor(
     private router: Router,
@@ -192,8 +193,10 @@ export class FeedComponent implements OnInit {
     this.publishmentService.getPublishmentsByCategories(body).subscribe(
       (res) => {
         this.publishments = res;
+        this.msjSinResultados = false;
       },
       (err) => {
+        this.msjSinResultados = true;
         this.publishments = null;
       }
     );
@@ -210,8 +213,10 @@ export class FeedComponent implements OnInit {
     this.spaceService.getSpacesByCategories(body).subscribe(
       (res) => {
         this.spaces = res;
+        this.msjSinResultados = false;
       },
       (err) => {
+        this.msjSinResultados = true;
         this.spaces = null;
       }
     );
@@ -235,17 +240,21 @@ export class FeedComponent implements OnInit {
         .search(body, this.searchValue)
         .subscribe((res) => {
           this.publishments = res;
+          this.msjSinResultados = false;
         }),
         (err) => {
           this.publishments = null;
+          this.msjSinResultados = true;
         };
     } else if (this.searchType == 'space') {
       this.showSpaces = 9;
       this.spaceService.search(body, this.searchValue).subscribe((res) => {
         this.spaces = res;
+        this.msjSinResultados = false;
       }),
         (err) => {
-          this.publishments = null;
+          this.spaces = null;
+          this.msjSinResultados = true;
         };
     }
   }

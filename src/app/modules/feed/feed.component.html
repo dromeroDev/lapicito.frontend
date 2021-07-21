@@ -124,7 +124,7 @@
                         *ngIf="showPublishment < this.publishments.length">Ver mas</button>
                 </div>
             </div>
-            <div class="mt-4 text-center" *ngIf="!publishments && searchType == 'publishment'">
+            <div class="mt-4 text-center" *ngIf="msjSinResultados && searchType == 'publishment'">
                 <h3 class="text-blue">Lamentablemente la categor&iacute;a seleccionada no contiene publicaciones</h3>
                 <img class="img-fluid" src="assets/images/question.png" alt="">
             </div>
@@ -161,7 +161,7 @@
                         *ngIf="showSpaces < this.spaces.length">Ver mas</button>
                 </div>
             </div>
-            <div class="mt-4 text-center" *ngIf="!spaces && searchType == 'space'">
+            <div class="mt-4 text-center" *ngIf="msjSinResultados && searchType == 'space'">
                 <h3 class="text-blue">Lamentablemente la categor&iacute;a seleccionada no contiene espacios</h3>
                 <img class="img-fluid" src="assets/images/question.png" alt="">
             </div>
