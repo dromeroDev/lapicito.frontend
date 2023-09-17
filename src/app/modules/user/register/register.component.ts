@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUsuarioNuevo } from 'src/app/core/models/usuario-nuevo';
 import { StorageService } from 'src/app/core/services/storage.service';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private router: Router,
@@ -24,17 +24,17 @@ export class RegisterComponent implements OnInit {
   }
 
   buildForm() {
-    this.form = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellido: new FormControl('', [Validators.required]),
-      userName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      reemail: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      nombre: new UntypedFormControl('', [Validators.required]),
+      apellido: new UntypedFormControl('', [Validators.required]),
+      userName: new UntypedFormControl('', [Validators.required]),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      reemail: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(4),
       ]),
-      repassword: new FormControl('', [
+      repassword: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(4),
       ]),

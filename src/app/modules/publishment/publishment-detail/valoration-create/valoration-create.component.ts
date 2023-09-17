@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { IPublicacion } from 'src/app/core/models/publicacion';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
@@ -10,7 +10,7 @@ import { PublishmentService } from 'src/app/core/services/publishment.service';
   styleUrls: ['./valoration-create.component.scss'],
 })
 export class ValorationCreateComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() publishment: IPublicacion;
   stars = [
     { id: 1, active: false },
@@ -31,8 +31,8 @@ export class ValorationCreateComponent implements OnInit {
   }
 
   formBuild() {
-    this.form = new FormGroup({
-      comentario: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      comentario: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(500),
       ]),

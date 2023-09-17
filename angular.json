@@ -123,5 +123,7 @@
       }
     }
   },
-  "defaultProject": "lapicito-frontend"
+  "cli": {
+    "analytics": false
+  }
 }

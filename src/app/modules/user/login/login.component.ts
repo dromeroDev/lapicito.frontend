@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  FacebookLoginProvider,
-  GoogleLoginProvider,
-  SocialAuthService,
-  SocialUser,
-} from 'angularx-social-login';
 import { IUsuario } from 'src/app/core/models/usuario';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -18,32 +16,25 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  socialUser: SocialUser;
-  userLogged: SocialUser;
+  form: UntypedFormGroup;
   isLogged: boolean;
   msjError: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
     private router: Router,
-    private authService: SocialAuthService,
     private userService: UserService,
     private storageService: StorageService //public toastService: ToastService
   ) {}
 
   ngOnInit(): void {
     this.formBuild();
-    this.authService.authState.subscribe((data) => {
-      this.userLogged = data;
-      this.isLogged = this.userLogged != null;
-    });
   }
 
   formBuild() {
-    this.form = new FormGroup({
-      userName: new FormControl('', [Validators.required]),
-      password: new FormControl('', Validators.required),
+    this.form = new UntypedFormGroup({
+      userName: new UntypedFormControl('', [Validators.required]),
+      password: new UntypedFormControl('', Validators.required),
     });
   }
 
@@ -83,27 +74,5 @@ export class LoginComponent implements OnInit {
         this.msjError = true;
       }
     );
-  }
-
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
-      this.socialUser = data;
-      this.isLogged = true;
-      this.router.navigate(['/feed']);
-      this.close();
-    });
-  }
-
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
-      this.socialUser = data;
-      this.isLogged = true;
-      this.router.navigate(['/feed']);
-      this.close();
-    });
-  }
-
-  logOut(): void {
-    this.authService.signOut();
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { IUsuario } from 'src/app/core/models/usuario';
 import { UserService } from 'src/app/core/services/user.service';
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class PortadaEditComponent implements OnInit {
   @Input() public user: IUsuario;
   selectedFile = null;
-  form: FormGroup;
+  form: UntypedFormGroup;
   filePath: string;
 
   constructor(
@@ -21,8 +21,8 @@ export class PortadaEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      img: new FormControl(null),
+    this.form = new UntypedFormGroup({
+      img: new UntypedFormControl(null),
     });
     this.filePath = this.user.portada_url;
   }

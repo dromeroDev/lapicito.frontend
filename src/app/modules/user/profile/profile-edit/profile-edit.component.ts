@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { IUsuario } from 'src/app/core/models/usuario';
 import { UserService } from 'src/app/core/services/user.service';
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./profile-edit.component.scss'],
 })
 export class ProfileEditComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() public user: IUsuario;
 
   constructor(
@@ -23,15 +23,15 @@ export class ProfileEditComponent implements OnInit {
   }
 
   formBuild() {
-    this.form = new FormGroup({
-      nombre: new FormControl(this.user.nombre, [Validators.required]),
-      apellido: new FormControl(this.user.apellido, [Validators.required]),
-      userName: new FormControl(this.user.userName, [Validators.required]),
-      email: new FormControl(this.user.email, [
+    this.form = new UntypedFormGroup({
+      nombre: new UntypedFormControl(this.user.nombre, [Validators.required]),
+      apellido: new UntypedFormControl(this.user.apellido, [Validators.required]),
+      userName: new UntypedFormControl(this.user.userName, [Validators.required]),
+      email: new UntypedFormControl(this.user.email, [
         Validators.required,
         Validators.email,
       ]),
-      telefono: new FormControl(this.user.telefono),
+      telefono: new UntypedFormControl(this.user.telefono),
     });
   }
 

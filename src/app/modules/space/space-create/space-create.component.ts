@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ICategoria } from 'src/app/core/models/categoria';
 import { CategoriaService } from 'src/app/core/services/categoria.service';
@@ -12,7 +12,7 @@ import { SpaceService } from 'src/app/core/services/space.service';
 })
 export class SpaceCreateComponent implements OnInit {
   selectedFile = null;
-  form: FormGroup;
+  form: UntypedFormGroup;
   filePath: string;
   categorias: ICategoria[];
 
@@ -23,14 +23,14 @@ export class SpaceCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      img: new FormControl(null),
-      titulo: new FormControl('', Validators.required),
-      descripcion: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      img: new UntypedFormControl(null),
+      titulo: new UntypedFormControl('', Validators.required),
+      descripcion: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(600),
       ]),
-      categoria: new FormControl('', Validators.required),
+      categoria: new UntypedFormControl('', Validators.required),
     });
 
     this.categoryService.getAll().subscribe((res) => {

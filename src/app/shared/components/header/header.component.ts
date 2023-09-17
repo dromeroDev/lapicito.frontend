@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SocialAuthService, SocialUser } from 'angularx-social-login';
-import { Observable } from 'rxjs';
 import { IUsuario } from 'src/app/core/models/usuario';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { UserStoreService } from 'src/app/core/services/user-store.service';
@@ -13,7 +11,6 @@ import { UserStoreService } from 'src/app/core/services/user-store.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   modo: string = 'light';
-  //userLogged: SocialUser;
   userLogged: IUsuario;
 
   isLogged: boolean;
@@ -21,15 +18,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(
     public userStoreService: UserStoreService,
     private storageService: StorageService,
-    private authService: SocialAuthService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    // this.authService.authState.subscribe((data) => {
-    //   this.userLogged = data;
-    //   this.isLogged = this.userLogged != null;
-    // });
     this.storageService.watchStorage().subscribe((data: string) => {
       this.userLogged = JSON.parse(localStorage.getItem('usuario'));
     });

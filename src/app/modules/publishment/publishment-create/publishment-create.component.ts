@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { IEspacio } from 'src/app/core/models/espacio';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
@@ -15,7 +15,7 @@ export class PublishmentCreateComponent implements OnInit {
   step: number = 1;
   spaces: any[];
   spaceSelected: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
   selectedFile = null;
 
   constructor(
@@ -35,9 +35,9 @@ export class PublishmentCreateComponent implements OnInit {
   }
 
   formBuild() {
-    this.form = new FormGroup({
-      titulo: new FormControl('', Validators.required),
-      descripcion: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      titulo: new UntypedFormControl('', Validators.required),
+      descripcion: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(1000),
       ]),

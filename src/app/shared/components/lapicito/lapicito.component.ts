@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LapicitoService } from 'src/app/core/services/lapicito.service';
 
@@ -9,7 +9,7 @@ import { LapicitoService } from 'src/app/core/services/lapicito.service';
   styleUrls: ['./lapicito.component.scss'],
 })
 export class LapicitoComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() idReceptor: number;
 
   constructor(
@@ -22,9 +22,9 @@ export class LapicitoComponent implements OnInit {
   }
 
   formBuild() {
-    this.form = new FormGroup({
-      lapicitos: new FormControl(0, [Validators.required, Validators.min(1)]),
-      comentario: new FormControl('', [Validators.required]),
+    this.form = new UntypedFormGroup({
+      lapicitos: new UntypedFormControl(0, [Validators.required, Validators.min(1)]),
+      comentario: new UntypedFormControl('', [Validators.required]),
     });
   }
 
