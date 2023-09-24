@@ -62,12 +62,12 @@ export class LoginComponent implements OnInit {
             this.storageService.setItem('usuario', JSON.stringify(data));
 
             this.close();
-            this.router.navigate(['/preference']);
-            /* if (res['tieneCategorias']) {
+
+            if (res['tieneCategorias']) {
               this.router.navigate(['/feed']);
             } else {
               this.router.navigate(['/preference']);
-            } */
+            }
           });
       },
       (error) => {
