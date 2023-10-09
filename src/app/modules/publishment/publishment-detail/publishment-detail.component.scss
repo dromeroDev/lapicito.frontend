@@ -30,5 +30,7 @@ p {
 }
 
 .img-thumbnail {
-  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
 }

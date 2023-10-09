@@ -5,7 +5,7 @@
   background-size: contain;
   .img-thumbnail {
     position: absolute;
-    top: 40%;
+    top: 260px;
     left: 13%;
     height: 160px;
     width: 160px;
@@ -51,6 +51,7 @@
   flex-direction: column;
   .card-space-portada {
     height: 100px;
+    object-fit: cover;
   }
   h5 {
     &:hover {
