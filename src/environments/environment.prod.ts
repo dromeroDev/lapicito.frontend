@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   ambiente: 'v1.0',
-  url_server: 'http://lapicito-env.eba-u9q7agyc.us-east-2.elasticbeanstalk.com',
+  url_server: 'http://localhost:8080',
   url_front: 'http://localhost:4200',
 };
