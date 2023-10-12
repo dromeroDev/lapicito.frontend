@@ -1,0 +1,222 @@
+{
+  "categoria": [
+    {
+      "descripcion": "Administración y Empresas",
+      "icono": "fa-building",
+      "idCategoria": 1
+    },
+    { "descripcion": "Agricultura", "icono": "fa-tractor", "idCategoria": 2 },
+    {
+      "descripcion": "Arquitectura y construcción",
+      "icono": "fa-hammer",
+      "idCategoria": 3
+    },
+    {
+      "descripcion": "Arte, Diseño y Música",
+      "icono": "fa-palette",
+      "idCategoria": 4
+    },
+    { "descripcion": "Biología", "icono": "fa-microscoper", "idCategoria": 5 },
+    {
+      "descripcion": "Ciencias Políticas",
+      "icono": "fa-landmark",
+      "idCategoria": 6
+    },
+    { "descripcion": "Cocina", "icono": "fa-utensils", "idCategoria": 7 },
+    { "descripcion": "Derecho", "icono": "fa-balance-scale", "idCategoria": 8 },
+    { "descripcion": "Ecología", "icono": "fa-leaf", "idCategoria": 9 },
+    {
+      "descripcion": "Economía y Comercio",
+      "icono": "fa-hand-holding-usd",
+      "idCategoria": 10
+    },
+    {
+      "descripcion": "Educación Física",
+      "icono": "fa-running",
+      "idCategoria": 11
+    },
+    {
+      "descripcion": "Electrónica y Mecanica",
+      "icono": "fa-car-battery",
+      "idCategoria": 12
+    },
+    { "descripcion": "Estética", "icono": "fa-smile", "idCategoria": 13 },
+    {
+      "descripcion": "Filosofía",
+      "icono": "fa-question-circle",
+      "idCategoria": 14
+    },
+    {
+      "descripcion": "Física y Química",
+      "icono": "fa-atom",
+      "idCategoria": 15
+    },
+    {
+      "descripcion": "Geografía",
+      "icono": "fa-map-marked-alt",
+      "idCategoria": 16
+    },
+    { "descripcion": "Historia", "icono": "fa-history", "idCategoria": 17 },
+    {
+      "descripcion": "idiomas y Lingüistica",
+      "icono": "fa-language",
+      "idCategoria": 18
+    },
+    { "descripcion": "Informática", "icono": "fa-laptop", "idCategoria": 19 },
+    { "descripcion": "Ingeniería", "icono": "fa-chess", "idCategoria": 20 },
+    { "descripcion": "Literatura", "icono": "fa-signature", "idCategoria": 21 },
+    {
+      "descripcion": "Matemáticas",
+      "icono": "fa-square-root-alt",
+      "idCategoria": 22
+    },
+    {
+      "descripcion": "Periodismo",
+      "icono": "fa-microphone-alt",
+      "idCategoria": 23
+    },
+    {
+      "descripcion": "Medicina y Salud",
+      "icono": "fa-stethoscope",
+      "idCategoria": 24
+    },
+    {
+      "descripcion": "Psicología",
+      "icono": "fa-book-reader",
+      "idCategoria": 25
+    },
+    {
+      "descripcion": "Programación",
+      "icono": "fa-laptop-code",
+      "idCategoria": 26
+    },
+    {
+      "descripcion": "Publicidad y Relaciones Públicas",
+      "icono": "fa-video",
+      "idCategoria": 27
+    },
+    {
+      "descripcion": "Sociología y Antropología",
+      "icono": "fa-universal-access",
+      "idCategoria": 28
+    },
+    { "descripcion": "Nutrición", "icono": "fa-apple-alt", "idCategoria": 29 },
+    { "descripcion": "Veterinaría", "icono": "fa-paw", "idCategoria": 30 },
+    {
+      "descripcion": "Turismo",
+      "icono": "fa-plane-departure",
+      "idCategoria": 31
+    },
+    {
+      "descripcion": "Administración y Empresas",
+      "icono": "fa-building",
+      "idCategoria": 32
+    },
+    { "descripcion": "Agricultura", "icono": "fa-tractor", "idCategoria": 33 },
+    {
+      "descripcion": "Arquitectura y construcción",
+      "icono": "fa-hammer",
+      "idCategoria": 34
+    },
+    {
+      "descripcion": "Arte, Diseño y Música",
+      "icono": "fa-palette",
+      "idCategoria": 35
+    },
+    { "descripcion": "Biología", "icono": "fa-microscoper", "idCategoria": 36 },
+    {
+      "descripcion": "Ciencias Políticas",
+      "icono": "fa-landmark",
+      "idCategoria": 37
+    },
+    { "descripcion": "Cocina", "icono": "fa-utensils", "idCategoria": 38 },
+    {
+      "descripcion": "Derecho",
+      "icono": "fa-balance-scale",
+      "idCategoria": 39
+    },
+    { "descripcion": "Ecología", "icono": "fa-leaf", "idCategoria": 40 },
+    {
+      "descripcion": "Economía y Comercio",
+      "icono": "fa-hand-holding-usd",
+      "idCategoria": 41
+    },
+    {
+      "descripcion": "Educación Física",
+      "icono": "fa-running",
+      "idCategoria": 42
+    },
+    {
+      "descripcion": "Electrónica y Mecanica",
+      "icono": "fa-car-battery",
+      "idCategoria": 43
+    },
+    { "descripcion": "Estética", "icono": "fa-smile", "idCategoria": 44 },
+    {
+      "descripcion": "Filosofía",
+      "icono": "fa-question-circle",
+      "idCategoria": 45
+    },
+    {
+      "descripcion": "Física y Química",
+      "icono": "fa-atom",
+      "idCategoria": 46
+    },
+    {
+      "descripcion": "Geografía",
+      "icono": "fa-map-marked-alt",
+      "idCategoria": 47
+    },
+    { "descripcion": "Historia", "icono": "fa-history", "idCategoria": 48 },
+    {
+      "descripcion": "idiomas y Lingüistica",
+      "icono": "fa-language",
+      "idCategoria": 49
+    },
+    { "descripcion": "Informática", "icono": "fa-laptop", "idCategoria": 50 },
+    { "descripcion": "Ingeniería", "icono": "fa-chess", "idCategoria": 51 },
+    { "descripcion": "Literatura", "icono": "fa-signature", "idCategoria": 52 },
+    {
+      "descripcion": "Matemáticas",
+      "icono": "fa-square-root-alt",
+      "idCategoria": 53
+    },
+    {
+      "descripcion": "Periodismo",
+      "icono": "fa-microphone-alt",
+      "idCategoria": 54
+    },
+    {
+      "descripcion": "Medicina y Salud",
+      "icono": "fa-stethoscope",
+      "idCategoria": 55
+    },
+    {
+      "descripcion": "Psicología",
+      "icono": "fa-book-reader",
+      "idCategoria": 56
+    },
+    {
+      "descripcion": "Programación",
+      "icono": "fa-laptop-code",
+      "idCategoria": 57
+    },
+    {
+      "descripcion": "Publicidad y Relaciones Públicas",
+      "icono": "fa-video",
+      "idCategoria": 58
+    },
+    {
+      "descripcion": "Sociología y Antropología",
+      "icono": "fa-universal-access",
+      "idCategoria": 59
+    },
+    { "descripcion": "Nutrición", "icono": "fa-apple-alt", "idCategoria": 60 },
+    { "descripcion": "Veterinaría", "icono": "fa-paw", "idCategoria": 61 },
+    {
+      "descripcion": "Turismo",
+      "icono": "fa-plane-departure",
+      "idCategoria": 62
+    }
+  ]
+}
