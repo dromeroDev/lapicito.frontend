@@ -8,9 +8,10 @@ import {
   NgbCarouselModule,
   NgbTooltipModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { RankingTopComponent } from './ranking-top/ranking-top.component';
 
 @NgModule({
-  declarations: [FeedComponent],
+  declarations: [FeedComponent, RankingTopComponent],
   imports: [
     CommonModule,
     SharedModule,

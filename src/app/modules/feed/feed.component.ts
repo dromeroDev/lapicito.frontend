@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ICategoria } from 'src/app/core/models/categoria';
 import { IEspacio } from 'src/app/core/models/espacio';
 import { IPublicacion } from 'src/app/core/models/publicacion';
@@ -9,6 +10,7 @@ import { CategoriaService } from 'src/app/core/services/categoria.service';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
 import { RankingService } from 'src/app/core/services/ranking.service';
 import { SpaceService } from 'src/app/core/services/space.service';
+import { RankingTopComponent } from './ranking-top/ranking-top.component';
 
 @Component({
   selector: 'app-feed',
@@ -33,7 +35,8 @@ export class FeedComponent implements OnInit {
     private categoriaService: CategoriaService,
     private publishmentService: PublishmentService,
     private spaceService: SpaceService,
-    private rankingService: RankingService
+    private rankingService: RankingService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -95,9 +98,10 @@ export class FeedComponent implements OnInit {
     };
     usuarios.forEach((usuario, index) => {
       let item: IItemRanking = {
-        position: index,
+        position: index + 1,
         description: usuario.userName,
         value: usuario.cantidad_lapicitos,
+        link: '/user/' + usuario.id,
       };
       ranking.items.push(item);
     });
@@ -116,6 +120,7 @@ export class FeedComponent implements OnInit {
         position: index + 1,
         description: publicacion.titulo,
         value: publicacion.valoracionDtoList.length,
+        link: '/publishment/' + publicacion.idPublicacion,
       };
       ranking.items.push(item);
     });
@@ -134,6 +139,7 @@ export class FeedComponent implements OnInit {
         position: index + 1,
         description: espacio.titulo,
         value: espacio.cantidadMiembrosEspacio,
+        link: '/space/' + espacio.idEspacio,
       };
       ranking.items.push(item);
     });
@@ -152,6 +158,7 @@ export class FeedComponent implements OnInit {
         position: index + 1,
         description: publicacion.titulo,
         value: publicacion.cantidadDeDescargas,
+        link: '/publishment/' + publicacion.idPublicacion,
       };
       ranking.items.push(item);
     });
@@ -265,5 +272,14 @@ export class FeedComponent implements OnInit {
 
   showMoreSpaces() {
     this.showSpaces += 9;
+  }
+
+  openTop10(ranking) {
+    const options: NgbModalOptions = {
+      animation: true,
+      backdrop: 'static',
+    };
+    const modalRef = this.modalService.open(RankingTopComponent, options);
+    modalRef.componentInstance.ranking = ranking;
   }
 }

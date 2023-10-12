@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   ambiente: 'prepro',
   url_server: 'http://localhost:8080',
+  url_front: 'http://localhost:4200',
 };
 
 /*

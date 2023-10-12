@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ ranking.title }}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="ranking">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        [routerLink]="[rankingItem.link]"
+        (click)="dismiss()"
+        *ngFor="let rankingItem of ranking.items"
+      >
+        <div class="d-flex justify-content-between">
+          <span
+            ><img
+              src="{{ getImageLapicitoRanking(rankingItem.position) }}"
+              style="width: 20px; margin-right: 10px"
+            />{{ rankingItem.description | limitRankCaracters }}</span
+          >
+          <span>
+            {{ rankingItem.value }}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

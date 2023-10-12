@@ -7,4 +7,5 @@ export interface IItemRanking {
   position: number;
   value: number;
   description: string;
+  link: string;
 }

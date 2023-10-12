@@ -72,18 +72,18 @@ p.text-decoration-underline {
 }
 
 ::ng-deep .carousel-indicators {
-  bottom: 5px;
-  li {
-    background-color: #ccc;
-    width: 20px;
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 2px;
+  bottom: -5px;
+  button {
+    background-color: #ccc !important;
+    width: 20px !important;
+    cursor: pointer !important;
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 50% !important;
+    margin-right: 2px !important;
   }
 
-  li.active {
+  button.active {
     background-color: $green-primary;
   }
 }
