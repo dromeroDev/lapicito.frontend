@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IUsuario } from 'src/app/core/models/usuario';
-import { UserService } from 'src/app/core/services/user.service';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { IEspacio } from 'src/app/core/models/espacio';
 import { IPublicacion } from 'src/app/core/models/publicacion';
+import { IUsuario } from 'src/app/core/models/usuario';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
 import { SpaceService } from 'src/app/core/services/space.service';
-import { IEspacio } from 'src/app/core/models/espacio';
+import { StorageService } from 'src/app/core/services/storage.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { LapicitoRecivedComponent } from '../../lapicito/lapicito-recived/lapicito-recived.component';
 import { AvatarEditComponent } from './avatar-edit/avatar-edit.component';
 import { PortadaEditComponent } from './portada-edit/portada-edit.component';
-import { StorageService } from 'src/app/core/services/storage.service';
-import { LapicitoService } from 'src/app/core/services/lapicito.service';
-import { LapicitoRecivedComponent } from '../../lapicito/lapicito-recived/lapicito-recived.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const CLIENT_ID_LAPICITO = '2974784228505657';
 
@@ -69,7 +68,7 @@ export class ProfileComponent implements OnInit {
     return (
       'https://auth.mercadopago.com.ar/authorization?client_id=' +
       CLIENT_ID_LAPICITO +
-      '&response_type=code&platform_id=mp&redirect_uri=http://lapicito.frontend.s3-website.us-east-2.amazonaws.com/callback'
+      '&response_type=code&platform_id=mp&redirect_uri=https://dromerodev.github.io/lapicito.frontend/callback'
     );
   }
 

@@ -47,11 +47,17 @@
                 </span>
             </div> -->
       <div [hidden]="isViewer()">
-        <!--<a class="btn btn-outline-primary btn-block mt-3 btn-mp" [href]="getUrlMP()" placement="top"
-                    ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!" *ngIf="!user.mp_user_id">
-                    <img src="assets/images/icon_mp.png">
-                    Vincular Mercado Pago</a>-->
         <a
+          class="btn btn-outline-primary btn-block mt-3 btn-mp"
+          [href]="getUrlMP()"
+          placement="top"
+          ngbTooltip="Vincule su cuenta para poder recibir Lapicitos!"
+          *ngIf="!user.mp_user_id"
+        >
+          <img src="assets/images/icon_mp.png" />
+          Vincular Mercado Pago</a
+        >
+        <!-- <a
           class="btn btn-outline-primary btn-block mt-3 btn-mp"
           placement="top"
           ngbTooltip="Proximamente vas a poder vincular tu cuenta para poder recibir Lapicitos!"
@@ -59,7 +65,7 @@
         >
           <img src="assets/images/icon_mp.png" />
           Vincular Mercado Pago</a
-        >
+        > -->
         <a
           class="btn btn-outline-danger btn-block mt-3 btn-mp"
           (click)="desvincularMP()"
