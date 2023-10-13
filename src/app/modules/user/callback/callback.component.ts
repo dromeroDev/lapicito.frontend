@@ -30,8 +30,7 @@ export class CallbackComponent implements OnInit {
       client_secret: CLIENT_SECRET_LAPICITO,
       grant_type: 'authorization_code',
       code: code,
-      redirect_uri:
-        'http://lapicito.frontend.s3-website.us-east-2.amazonaws.com/callback',
+      redirect_uri: 'https://dromerodev.github.io/lapicito.frontend/callback',
     };
     this.userService.generarCredencialesMP(body).subscribe((res) => {
       console.log(res);
