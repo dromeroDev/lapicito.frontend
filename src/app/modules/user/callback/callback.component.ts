@@ -26,15 +26,17 @@ export class CallbackComponent implements OnInit {
   }
 
   generarCredencialesMP(code) {
-    const body = {
+    /* const body = {
+      client_id: '2974784228505657',
       client_secret: CLIENT_SECRET_LAPICITO,
       grant_type: 'authorization_code',
       code: code,
+      test_token: true,
       redirect_uri: 'https://dromerodev.github.io/lapicito.frontend/callback',
     };
     this.userService.generarCredencialesMP(body).subscribe((res) => {
-      console.log(res);
-      const body = {
+      console.log(res); */
+    /* const body = {
         access_token: res['access_token'],
         idUsuario: localStorage.getItem('id_usuario'),
         live_mode: res['live_mode'],
@@ -43,12 +45,21 @@ export class CallbackComponent implements OnInit {
         scope: res['scope'],
         token_type: res['token_type'],
         user_id: res['user_id'],
-      };
-      this.userService.vincularMP(body).subscribe((res) => {
-        this.router.navigateByUrl(
-          '/user/' + localStorage.getItem('id_usuario')
-        );
-      });
+      }; */
+    const body = {
+      access_token:
+        'TEST-2974784228505657-101223-08e76a12dbcc82a47df78dd75c129bd4-49668766',
+      token_type: 'Bearer',
+      expires_in: 15552000,
+      scope: 'offline_access read write',
+      user_id: 49668766,
+      idUsuario: localStorage.getItem('id_usuario'),
+      refresh_token: 'TG-6528bce0d077a9000188703c-49668766',
+      public_key: 'TEST-8179540e-8f9f-4050-8236-7d965250046f',
+    };
+    this.userService.vincularMP(body).subscribe((res) => {
+      this.router.navigateByUrl('/user/' + localStorage.getItem('id_usuario'));
     });
+    //});
   }
 }

@@ -1,7 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { IEspacio } from 'src/app/core/models/espacio';
+import { ToastrService } from 'ngx-toastr';
 import { PublishmentService } from 'src/app/core/services/publishment.service';
 import { SpaceService } from 'src/app/core/services/space.service';
 import { SpaceCreateComponent } from '../../space/space-create/space-create.component';
@@ -22,6 +26,7 @@ export class PublishmentCreateComponent implements OnInit {
     private spaceService: SpaceService,
     private publishmentService: PublishmentService,
     private modalService: NgbModal,
+    private toastr: ToastrService,
     private cd: ChangeDetectorRef
   ) {}
 
@@ -78,6 +83,11 @@ export class PublishmentCreateComponent implements OnInit {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
+      if (!this.validateFile(event.target.files[0])) {
+        this.toastr.error('El tipo de archivo no es valido!');
+        return;
+      }
+
       this.selectedFile = event.target.files[0];
       const [file] = event.target.files;
       reader.readAsDataURL(file);
@@ -93,16 +103,29 @@ export class PublishmentCreateComponent implements OnInit {
     }
   }
 
-  save() {
-    const data: FormData = new FormData();
-    data.append('publicacion_file', this.selectedFile);
-    data.append('titulo', this.form.controls.titulo.value);
-    data.append('descripcion', this.form.controls.descripcion.value);
-    data.append('id_espacio', this.spaceSelected);
-    data.append('id_usuario', localStorage.getItem('id_usuario'));
+  validateFile(file: File) {
+    const allowedFileTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    ];
+    return allowedFileTypes.includes(file.type);
+  }
 
-    this.publishmentService.save(data).subscribe((event) => {
-      this.step = 3;
-    });
+  save() {
+    if (this.selectedFile) {
+      const data: FormData = new FormData();
+      data.append('publicacion_file', this.selectedFile);
+      data.append('titulo', this.form.controls.titulo.value);
+      data.append('descripcion', this.form.controls.descripcion.value);
+      data.append('id_espacio', this.spaceSelected);
+      data.append('id_usuario', localStorage.getItem('id_usuario'));
+
+      this.publishmentService.save(data).subscribe((event) => {
+        this.step = 3;
+      });
+    } else {
+      this.toastr.error('Seleccione un archivo de tipo valido!');
+    }
   }
 }
