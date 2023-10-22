@@ -83,8 +83,15 @@ export class PublishmentCreateComponent implements OnInit {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
-      if (!this.validateFile(event.target.files[0])) {
+      if (!this.validateFileType(event.target.files[0])) {
         this.toastr.error('El tipo de archivo no es valido!');
+        return;
+      }
+
+      if (!this.validateFileSize(event.target.files[0])) {
+        this.toastr.error(
+          'El archivo es demasiado grande. El tamaño máximo permitido es de 50 MB.'
+        );
         return;
       }
 
@@ -103,13 +110,17 @@ export class PublishmentCreateComponent implements OnInit {
     }
   }
 
-  validateFile(file: File) {
+  validateFileType(file: File) {
     const allowedFileTypes = [
       'application/pdf',
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ];
     return allowedFileTypes.includes(file.type);
+  }
+
+  validateFileSize(file: File) {
+    return file.size <= 50 * 1024 * 1024;
   }
 
   save() {

@@ -46,7 +46,7 @@
                     {{cat.descripcion}}
                 </span>
             </div> -->
-      <div [hidden]="isViewer()">
+      <div class="mb-2" [hidden]="isViewer()">
         <a
           class="btn btn-outline-primary btn-block mt-3 btn-mp"
           [href]="getUrlMP()"
@@ -75,12 +75,13 @@
           Desvincular Mercado Pago</a
         >
       </div>
-      <div [hidden]="!isViewer() || !user.mp_user_id">
-        <h4
+      <div>
+        <h5
           class="text-green pointer"
           (click)="showDonaciones()"
           placement="top"
           ngbTooltip="Hace click para mirar los comentarios que le dejaron!"
+          *ngIf="!isViewer()"
         >
           <img
             src="assets/images/logo_new2.svg"
@@ -88,11 +89,12 @@
             style="width: 30px"
           />
           Lapicitos recibidos: {{ user.cantidad_lapicitos }}
-        </h4>
+        </h5>
         <button
           type="button"
           class="btn-lg p-2 btn-green mt-1"
           style="width: 70%"
+          *ngIf="isViewer() && user.mp_user_id"
         >
           Donar Lapicito
         </button>
